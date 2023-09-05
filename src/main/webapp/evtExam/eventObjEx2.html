@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+OS - EVENT QUEUE에서 이벤트 처리(이벤트리스너에 등록하는 방식)
+브라우저
+
+Event(모든 NODE, Components)
+
+Rendering(컴포넌트를 그려준다)
+
+순서 : 
+1. 이벤트 대상
+2. 이벤트 등록(2가지)
+- 인라인 방식 : tag 내에 직접 등록하는 방식. onclick..
+- 이벤트리스너에 등록하는 방식. EventListener -> 클릭하면 값을 출력해
+3. 이벤트핸들러(콜백함수)
+
+
+이벤트 객체 : 이벤트 객체는 브라우저에서 이벤트가 발생될때마다 자동으로 생성되는 객체입니다.
+이 객체에는 이벤트의 종류부터 시작해서 프로그래머가 필요한 모든 정보를 가지고 생성되고, 자동으로 핸들러 함수에 전달되어집니다.
+만약 여러분이 이벤트의 추가 정보가 필요하다면, 이 이벤트 객체를 받아서 속성, 메서드를 이용해서 정보를 추출 및 가공하면 됩니다.
+-->
+<h1 id="text01">H1</h1>
+<h1 id="text02">H2</h1>
+
+<script type="text/javascript">
+// 문서전체에 걸쳐서 발생되는 대표적인 이벤트 종류중에 마우스이벤트가 있습니다. 이 이벤트는 다시 세부적으로 구분되어지는데, (클릭, 이동(무브), enter, out etc..)
+// 이중 mousemove 라는 이벤트를 등록해서 좌표값을 얻어내는 작업을 해볼게요.
+
+let t1 = document.getElementById('text01');
+let t2 = document.getElementById('text02');
+document.onmousemove = function(amg){
+	let x = amg.pageX;
+	let y = amg.pageY;
+	
+	t1.textContent = x;
+	t2.textContent = y;
+}
+
+</script>
+</body>
+</html>

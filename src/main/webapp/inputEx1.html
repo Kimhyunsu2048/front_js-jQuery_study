@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>폼 하위의 input Tag 의 종류 및 속성 알아보기</title>
+</head>
+
+<body>
+	<!--
+      다양한 입력 태그가 있는데, 이중 기본적인 요소(element => Tag)와 그 요소가 가지고 있는 속성을 알아볼게요.
+      
+      input 태그를 선언 한뒤, type 에 다음과 같은 입력 요소를 설정 하시면, 그대로 문서에 랜더링 되어집니다.
+      
+      type 종류
+      
+      1. text : 텍스트 입력 하는 한줄짜리 input 요소(기본 길이는 20자 크기의 size)
+      2. password : 암호를 입력 받는 한줄짜리 input(길이 위와 같음)
+      3. radio : 여러 선택내용중 하나만 선택 할 수 있는 input
+      4. checkbox : 여러 선택내용중 하나이상 선택 할 수 있는 input
+      5. file : 파일 이름을 입력하는 필드
+      6. reset : 폼내의 모든 input 요소의 값을 모두 리셋하는 버튼
+      7. hidden : 사용자에게는 보여지지 않는 input 요소, 그러나 값을 설정후 서버에 보낼수 있음
+      8. submit : 폼의 action 에 지정된 url 에 입력 정보를 모두 전송하는 버튼
+      
+      꼭 기억 하세요. 위 종류는 쉽기 때문에 외우려고 하지 마시고, 쓰다보면 자연스럽게 익혀집니다.
+      그러나, 위 요소들은 모두 서버에게 data를 넘기는 작업용 이기에, 반드시 아래의 내용은 기억하세요.
+      
+      위 태그들이 공통으로 갖는 속성 (Attribute, Properties 필요에 따라 사용할수도 안할수도 있음)
+      
+      1. value : 기본값을 갖도록 정의함(사용자가 값을 변경하면 value 값 또한 변경됨)
+      2. name : 서버에 사용자의 입력 정보를 담아서 보내지는 키값.. 당연히 중복되면 안됨
+      3. id : design 이나 스크립트등에서 사용할 때 사용되는 키값..            
+    -->
+
+	<hr>
+
+	<form action="join.jsp" method="post">
+		ID : <input type="text" size="20" name="id" value="abcd"> <br>
+		암호 : <input type="password" name="pw"> <br> 
+		성별 : <input type="radio" value="m" name="gender">남자 
+			  <input type="radio" value="f" name="gender" checked="checked">여자<br> 
+		취미 : <input type="checkbox" name="hobby" value="sprots">운동 
+		      <input type="checkbox" name="hobby" value="reading">독서 
+		      <input type="checkbox" name="hobby" value="movie">영화보기 
+		      <input type="checkbox" name="hobby" value="program">프로그래밍하기 
+		      <input type="hidden" name="tool" value="eclipse"> <!-- hidden은 화면에 보이지 않으나 서버에서 필요함 -->	<br> 
+		      <input type="button" id="b1" value="버튼1"> <!-- 보통 input type의 버튼은 자바스크립트의 코드를 넣어줌 -->
+		 	  <button id="b2">난버튼2</button>
+			  <input type="submit" value="서버에 전송"> <input type="reset" value="모두 초기화">
+	</form>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+/*  
+ * 아래의 계산기를 사용자가 입력한 값을 display 창에 띄우고 enter 가 입력되면
+ * 계산 내용을 display 에 출력시키세요.
+ * 참고로 eval(); 이라는 함수가 있는데, 이 함수는 문자열이 수식과 수로 되어있는
+ * 형태를 자동으로 계산해 주는 함수 입니다. 이 함수를 이용해서 결과를 출력시키세요.
+ * 정의 되어야 하는 함수는 이벤트 핸들러에 지정 했으니 그 이름대로 정의하세요.
+ * eval() 이라는 함수는 구글에서 찾아서 사용하세요. 결과를 표시할때 사용해도 좋고
+ * 다른 걸 사용해도 좋습니다.
+ */
+ 
+var total="";
+function add(val){
+	total = total + val;
+	document.getElelmentById("display").value = total;
+}
+
+function clearDisplay(){
+	total = "";
+	document.getElelmentById("display").value = "0";
+}
+
+function compute(){
+	document.getElelmentById("display").value = eval(total);
+}
+
+ 
+</script>
+<form>
+	display <input id="display" value="0" size="30">
+	<br>
+	
+	<input type="button" value="   7   " onclick = "add('7');">
+	<input type="button" value="   8   " onclick = "add('8');">
+	<input type="button" value="   9   " onclick = "add('9');">
+	<input type="button" value="   /   " onclick = "add('/');">
+	<br>
+	
+	<input type="button" value="   6   " onclick = "add('6');">
+	<input type="button" value="   5   " onclick = "add('5');">
+	<input type="button" value="   4   " onclick = "add('4');">
+	<input type="button" value="   *   " onclick = "add('*');">
+	<br>
+	
+	<input type="button" value="   1   " onclick = "add('1');">
+	<input type="button" value="   2   " onclick = "add('2');">
+	<input type="button" value="   3   " onclick = "add('3');">
+	<input type="button" value="   -   " onclick = "add('-');">
+	<br>
+	
+	<input type="button" value="   0   " onclick = "add('0');">
+	<input type="button" value="   +   " onclick = "add('+');">
+	<br>
+	
+	<input type="button" value="   clear   " onclick = "clearDisplay();">
+	<input type="button" value="   Enter   " 
+	onclick = "compute();" name="enter">
+	<br>
+	
+	
+
+	
+	
+</form>
+</body>
+</html>

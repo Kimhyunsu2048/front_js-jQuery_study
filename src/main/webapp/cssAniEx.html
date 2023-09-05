@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+@-webkit-keyframes bounce{
+	from, to{
+		top: 0px;
+		-webkit-animation-timing-function: ease-out; /*이벤트의 대상이 되는 애가 끝지점에 다다를때 천천히 동작되도록 하는 효과를 주는 함수 */
+	}
+	
+	50%{
+		top: 300px;
+		-webkit-animation-timing-function: ease-in; /* 위와 상동 */
+	}
+}
+
+/*사각형의 요소를 radius 를 조정해서 둥근 CIRCLE 형태로 변형시킵니다.  
+이후 위의 bounce 애니메이션 효과를 줘서 공이 바운스 되도록 합니다.
+*/
+#ball{
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background: red;
+	border-radius: 10px;
+	-webkit-animation-name: bounce;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-duration: 0.5s;
+}
+	
+</style>
+</head>
+<body>
+	<div id="ball">
+	
+	</div>
+</body>
+</html>

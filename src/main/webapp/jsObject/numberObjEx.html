@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+자바스크립트 Number 객체 : 자바스크립트는 외형으로 보기엔 타입 구분이 없어보입니다. 맞는 말이지만, 사실은 수행될때 모두 객체로 변형되어 수행된다라고 보시면 됩니다.
+모든 수치형은 Number 객체로, 문자열은 String 객체로, 나머지는 Object 타입으로(type 이란 객체를 타입으로 생각하시면 됩니다.)
+
+이번에 볼건 Number 객체가 가지고 있는 메서드와 속성, 특징만 간단히 보고 넘어갈게요.
+
+p(primitiValue - 원형)타입과 r(reference)타입이 존재
+ -->
+ 
+ <script type="text/javascript">
+var num = 1234.5678;
+console.log(num);
+
+let myNum = 1234.5678;
+console.log(myNum.toExponential());	// 1.2345678e+3
+console.log(myNum.toExponential(1));	// 1.2e+3
+console.log(myNum.toFixed());	// 1235
+console.log(myNum.toFixed(1));	// 1234.6
+
+let count1, count2;
+count1 = new Number(1.234);
+count2 = 1.234;
+
+if(count1.toFixed(2) === count2.toFixed(2)){
+ console.log("소수 2자리까지 값이 같으면서 타입도 같음");
+}else{
+ console.log("값 틀리며, 타입 같은지 여부 모름");
+}
+
+let count3 = "1.234";
+
+if(count1.toFixed(2) === parseFloat(count3).toFixed(2)){
+ console.log("소수 2자리까지 값이 같으면서 타입도 같음");
+}else{
+ console.log("값 틀리며, 타입 같은지 여부 모름");
+}
+
+if(count1 == count3){
+ console.log("소수 2자리까지 값이 같으면서 타입도 같음");
+}else{
+ console.log("값 틀리며, 타입 같은지 여부 모름");
+}
+
+console.log(Number.MAX_VALUE);
+
+let x = 1 + undefined;
+console.log(x);
+
+if(x == Number.isNaN()){
+	console.log("isNaN 임");
+}else{
+	typeof(x);
+	console.log("test");
+}
+
+console.log(Number.isNaN(x));
+
+if(Number.isNaN(x)){
+	x = 1;
+}else{
+	x += 10;
+}
+ 
+console.log(x);
+
+Number.isFinite(10/0);
+ 
+ 
+ </script>
+</body>
+</html>

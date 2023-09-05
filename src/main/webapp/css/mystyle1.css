@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+/*h1 요소에 color red 로, p 요소에 컬러는 orange 로 선언해보세요*/
+
+h1 {
+	color: red;
+}
+p {
+	color: orange;
+}
+
+

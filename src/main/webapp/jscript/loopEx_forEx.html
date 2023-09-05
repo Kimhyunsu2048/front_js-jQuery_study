@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p id="demo"></p>
+
+<script>
+// let sum = 0; 1 ~ 10까지의 누적 합 55
+
+/*
+자바스크립트의 루프문 : for(루프변수 초기화식; 조건식; 증감식){조건시 true 시에만 수행되는 로직 정의}
+for in, for each 세 종류의 for가 있고, 사용 쓰임새는 조금씩 틀립니다. 나중에 차례로 강의해 드릴게요.
+for 는 대체적으로 반복을 해야 하는 횟수를 알고 있을때 사용합니다.
+다음으로는 while() 루프가 있고, 지분율 40% 입니다. while 은 대체적으로 무한반복을 하다가 특정 조건이 되면 빠져 나오는 루프를 작성할때 사용합니다.
+
+다음으로는 do{} while(); 이 있고, 지분율 10% 정도입니다. => 얘는 먼저 한번은 무조건 실행 하도록 하고 다음에 조건을 보는 로직에 사용합니다.
+*/
+
+// 1 ~ 10 누적합 계산
+let sum = 0;	// 값을 대입하지 않으면 undefined 가 발생
+let j = 500;
+
+for(let i = 1; i <= 10; i++){
+	document.write("루프변수 값 " + i + " ");
+	sum += i;
+	document.write("1 ~ 10 누적합 : " + sum + "<br>");	
+}
+document.write("1 ~ 10 누적합 : " + sum + "<br>");
+
+// 3단
+</script>
+
+<table style="color: blue; border: 1px solid red">
+	<tr>
+		<script>
+		let res;
+		
+		let dan = 3;
+		
+		document.write("<td>" + dan + "시작<br><hr>");		
+		
+		for(let i = 1; i <= 9; i++){
+			res = dan * i;
+			// res 가 홀수인 경우만 출력하는 제어문 정의
+			if(res % 2 == 0)
+				// 루프를 제어하는 키워드 2개 ... 꼭 기억하세요.
+				// 1.continue : 이 키워드를 만나면 이 키워드가 있는 블락을 기준으로 이 하위에 있는 실행문은 무시하고
+				// 다시 조건으로 되돌아 갑니다. 즉 조건이 false 일때까지 반복을 하되, 이 키워드 하위는 수행을 안한다는 의미입니다.
+				// continue는 if문에는 실행안하며, 루프문에만 실행.
+				continue;
+			if(i > 5)
+				break; //가장 가까운 for 블락을 빠져나감.
+			
+			document.write(dan + " * " + i + " = " + res + "<br/>");
+		}
+		document.write("</td>");
+		</script>
+	</tr>
+</table>
+</body>
+</html>

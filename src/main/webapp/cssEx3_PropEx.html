@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- CSS 에 적용될 일반적인 속성들 알아보기..
+ex> font-family, font-style, 등..
+
+font-family 속성 : 문서에 적용될 글자 타입을 나타냅니다. 시스템에 타입이 없을 경우엔 기본 시스템 타입이 적용되고
+이런 경우를 대비해서 하나 이상의 타입을 , 로 구분해서 적용시킵니다. 이런경우 시스템에서 지원되는 타입을 적용해서 브라우징 합니다.
+
+외부 font type 가져다 사용하기..(일명 웹폰트)
+무료로 제공되는 폰트를 스타일에서 @font-face 라고 선언후 family 속성과, src 속성에 URL(폰트의 URL 위치) 를 지정하면 동적으로
+웹폰트가 사용 가능합니다.
+
+폰트크기 결정요소는 알아두세요.. 이건 왜 알아야 하냐면, 요즘은 대부분이 반응형 웹을 구현합니다.
+반응형이란 클라이언트가 어떤 device(폰, 태블릿, pc 등) 으로 들어오냐에 따라서 컨텐츠의 구성(레이아웃), 크기, 등이 동적으로
+조정이 되는 형태를 말합니다.
+
+이때 문자를 px 등으로 고정화시키면, 작은 기기로 들어온 사용자에겐 너무 크게 보일수 있습니다.
+따라서 이러한 경우를 대비해서 상대적 크기로 가변하도록 여러 속성이 있는데, 문자같은 경우엔 대표적인 가변 크기값이 em 입니다.
+em 은 가변성을 가지고 있고, 상대값을 적용하여 크기를 지정하는데, 상대는 내 부모 즉 이전에 표현된 컨텐츠의 크기를 말합니다.
+
+1.0em 은 부모에 1배, 2.0은 2배 등으로 해석되고 1.2 등은 지정된 값 만큼 상대적이란 뜻입니다.
+
+만약 폰트에 적용될 속성을 한번에 나열하고 싶을땐 다음처럼 축약해서 선언 가능합니다.
+
+font는 font-style font-variant font-weight font-family 이 순으로 차례로 값을 적용할 수 있습니다.
+
+이중 필수 속성이 있는데, size 와 family 는 필수 입니다.
+
+이번엔 Text 의 적용 속성을 나열해 볼게요...이중 많이 쓰는것은 따로 표기할게요.
+
+color: 색 지정
+direction : 가로 or 세로 쓰기 지정
+letter-spacing : 자간
+text-align : 문자열 정렬(많이 쓰임)
+
+ -->
+ 
+<style type="text/css">
+@font-face{
+	font-family: "Vera Serif Bold";
+	src: url("http://developer.mozilla.org/@api/deki/files/2934/=VeraSeBd.ttf");
+}
+body{
+	font-family: "Vera Serif Bold", Times New Roman, Times, serif;
+}
+
+p#t1{
+	font-size: 1.0em;
+}
+p#t2{
+	font-size: 1.5em;
+}
+
+h3{
+	font: italic 1.3em Vera Serif Bold, sans-serif;
+}
+
+h1{
+	text-align:justify; 
+	color: red;
+}
+p.date{
+	text-align: right;
+}
+</style>
+<title>Insert title here</title>
+</head>
+<body>
+하하하, 호호호
+abcd..
+
+<p id="t1" class="date">1.0em 적용 크기</p>
+<p id="t2">1.5em 적용 크기</p>
+
+<div style="background-color: cyan">
+	<h1>이건 justified 로 정렬한 결과입니다.</h1>
+	<h3>한번에 font 설정을 적용한 style 결과</h3>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>마우스 포인터를 감싸는 Circle 생성하는 이벤트 해보기</title>
+<style>
+/*circle 을 생성할 예정입니다. */
+#circle{
+	position: absolute; left: 0; top: 0; background-color: cyan;
+	width: 50px; height: 50px; border-radius: 25px;
+}
+</style>
+</head>
+<body>
+<div id="circle"></div>
+<script type="text/javascript">
+//Circle 을 문서객체 변수에 담는 작업부터 합니다.
+var circle = document.getElementById('circle');
+
+//body 영역전체(document 객체 영역) 에서 마우스가 move 될 때 원이 마우스를 따라다니게 처리함
+//그럴려면 좌표값을 알아야 하고, 그 좌표값에 circle 을 위치하면 됩니다.
+document.onmousemove = function(e){
+	var x = e.clientX;
+	var y = e.clientY;
+	
+	//원의 반지름을 구해서 원 내부로 포인터를 위치 하도록 해볼게요.
+	circle.style.left = (x - 25) +'px';
+	circle.style.top = (y - 25) +'px';
+}
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

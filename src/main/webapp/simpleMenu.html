@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>List 와 CSS 의 inline 속성등을 사용한 간단한 메뉴 구성해보기</title>
+<style type="text/css">
+	/*  
+		아래의 리스트를 메뉴형태로 변경합니다. 다음 시간에 배울 block, inline 속성을 이용해서 가로로 배치해볼게요.
+		먼저 ul 의 전체 CSS 를 정의 합니다.
+	*/
+	ul{ /*아무런 마커를 넣지않고, 텍스트는 중앙 정렬하고, 각 리스트의 위 아래에 경계선을 그릴예정입니다. */
+		list-style: none;
+		text-align: center;
+		border-top: 1px solid red; border-bottom: 1px solid red; padding: 10px 0;
+	}
+	
+	/*UL 의 하위에 li 에 스타일 적용합니다. 모든 문자는 대문자로 하고, 리스트 항목은 한중에 나와야 합니다. 따라서 블락이 아닌 inline으로 변형합니다. 다음에 배움  */
+	ul li{
+		display: inline;/*li 요소는 컨텐츠 한 블락에 담아서 사용하는 요소인데, 이 요소속성을 컨텐츠 만큼만 차지하도록 inline 으로 변경합니다.  */
+		text-transform: uppercase;/*모든 영문자를 대문자로 변경하는 속성 사용했습니다. 소문자는 lowercase 입니다.  */
+		padding: 0 10px;
+		letter-spacing: 10px;/*자간을 10px 줍니다.  */
+	}
+	
+	/*ul=>li=>a(즉 ul 내부에 있는 li에 있는 a 요소에 CSS 적용합니다.)  */
+	ul li a{
+		text-decoration:none;/*이 속성은 컨텐츠에 라인을 생성하거나, 없애거나 기타 효과를 주는 속성입니다.  */ 
+		color: black;
+	}
+	
+	/*링크에 마우스 오버시 효과 줍니다. */
+	ul li a:hover{
+		text-decoration: underline;
+	}
+
+</style>
+</head>
+<body>
+
+	<ul>
+		<li><a href="#">Home</a></li>
+		<li><a href="#">Blog</a></li>
+		<li><a href="#">Contact Us</a></li>
+		<li><a href="#">Site Map</a></li>
+	</ul>
+</body>
+</html>

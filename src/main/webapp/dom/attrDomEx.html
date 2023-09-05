@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div>
+	<p id="demo" onmouseover="this.style.visibility = 'hidden'" 
+	onmouseout="this.style.visibility = 'visible'">
+		여긴 p 태그의 내용부 입니다.
+	</p>
+</div>
+
+<img id="img" alt="예쁜 고양이 사진" 
+src="../images/1.jpg" width="120" height="100">
+
+<button onclick="changeImg();">눌러보세요</button>
+<button onclick="changePContent();">PTag에 style 적용</button>
+
+<script type="text/javascript">
+function changePContent(){
+	var pDemo = document.getElementById('demo');
+	//스타일 속성 주기
+	pDemo.style.color = 'red';
+	pDemo.style.fontFamily = "Courier";
+	pDemo.style.fontStyle = 'italic';
+}
+
+function changeImg(){
+	document.getElementById('img').src = "../images/2.jpg";
+}
+</script>
+</body>
+</html>

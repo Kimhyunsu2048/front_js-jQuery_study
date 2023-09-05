@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*  
+	마우스 포인터를 감싸는 Circle 을 CSS 로 정의해서 이벤트마다 호출해서 포인터를 감싸도록 합니다.
+*/
+
+#circle{
+	position: absolute; left: 0; top: 0; background-color: aqua; 
+	width: 50px; height: 50px; border-radius: 25px;
+}
+</style>
+</head>
+<body>
+<div id="circle"></div>
+
+<script type="text/javascript">
+
+// circle 을 얻어냅니다.
+let circle = document.getElementById('circle');
+
+// 위에서 서클을 얻어냈으니, 이젠 마우스 이벤트에 따른 포인터 좌표값을 얻어낸후, 그 좌표값에서 circle width 의 반만큼만 빼주면, 원의 중앙이 
+// 포인터의 위치값이 될겁니다. 이건 산수임..
+
+document.onmousemove = function(e){
+	let x = e.clientX;
+	let y = e.clientY;
+	
+	// 원의 반지름을 구해서 원 내부로 포인터를 위치 하도록 할게요.
+	circle.style.left = (x - 25) + 'px';
+	circle.style.top = (y - 25) + 'px';
+	
+}
+
+</script>
+</body>
+</html>

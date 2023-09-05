@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+/* 
+String 객체 : 모든 문자열을 관리하는 객체..여러분이 개발자가 되면 핸들링하는 데이터중에 지분율 70%인 객체입니다.
+그만큼 많이 사용하는 객체입니다. 메서드를 주로 이용할텐데, 참고로 거의 모든 메서드이름과, 기능은 타언어와 대동소이 합니다.
+따라서 여기서 잘 알아놓으면, 다른 언어와 같다고 생각하셔도 됩니다.
+*/
+
+let str1 = "hello";
+
+str1 = str1.toUpperCase(); // 새로운 인스턴스를 생성하므로 객체에 저장해야됨. -> 즉, reference를 바꿔줘야 함
+console.log(str1 + " : " + str1.toLowerCase());
+
+str1 = str1.concat(" Wo rld");
+console.log(str1);
+
+console.log(str1.length);
+
+console.log(str1.replace(" ","")); // HELLOWorld
+console.log(str1.indexOf(" "));	// 5
+
+str1 = str1.replaceAll(" ","");
+console.log(str1.indexOf(" "));	// -1 
+
+// 다음주에는 정규화 패턴, 화살표 함수 강의예정입니다...
+
+//split() : 문자열을 분리후에 각 항목을 가지고 있는 배열 리턴 메서드.. 즉 해당 메서드를 이용해서 문자열 값을 배열에 담을수 있음.
+let str2 = "one, two, three, 4, 오, 육";
+
+let arr = str2.split(",");
+
+for(let i = 0; i < arr.length; i++){
+	console.log(i + "-" + arr[i]);
+}
+
+
+</script>
+
+</body>
+</html>

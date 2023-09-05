@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!--
+WEB Browser (Edge -- IE)
+NN -- Chrome, Opera
+
+VM(Virtual  Machine) :
+브라우저에 탑재된  s/w
+jscript만 수행하도록 된 s/w(Interpreter)
+
+ECMA가 자바스크립트를 통일함  -->
+<hr>
+
+<h1>자바스크립트로 할수 있는 것들 알아보기</h1>
+
+<h2>1번.. HTML 요소의 값을 변경할 수 있어요.</h2>
+
+<p id="demo">자바스크립트는 이 요소의 값을 변경해줘요.</p>
+
+<button onclick="document.getElementById('demo').innerHTML = '안녕 Java Script 야!!'">Click Me</button>
+
+<hr>
+
+<h2>자바스크립트는 요소의 속성값을 변경할수도 있어요!</h2>
+
+<img id="myImg" alt="" src="pic_bulboff.gif" style="width: 100px">
+<button onclick="document.getElementById('myImg').src='pic_bulbon.gif'">전등켜기</button>
+<button onclick="document.getElementById('myImg').src='pic_bulboff.gif'">전등끄기</button>
+<button onclick="document.getElementById('myImg').style.display='none'">이미지 감추기</button>
+<button onclick="document.getElementById('myImg').style.display='block'">이미지 다시보이기</button>
+
+<hr>
+
+<h2>이번엔 요소의 스타일 건드려서 변경해 볼게요..</h2>
+<button onclick="document.getElementById('demo').style.color='red'">글씨 스타일 변경</button>
+
+<hr>
+<h2>이번에 요소를 보였다 안보였다 해볼게요.</h2>
+
+<button onclick="document.getElementById('demo').style.display='none'">글씨 감추기</button>
+<button onclick="document.getElementById('demo').style.display='block'">글씨 다시보이기</button>
+
+
+</body>
+</html>

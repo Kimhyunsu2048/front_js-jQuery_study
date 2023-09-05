@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link 
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" 
+	rel="stylesheet" 
+	integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" 
+	crossorigin="anonymous"
+>
+</head>
+<body>
+<div class="container bg-warning shadow mx-auto mt-5 p-5 w-75">
+	<h2>BootStrap 을 이용한 UI 구성</h2>
+	
+	<!-- 이 내부에 입력 태그를 담는 기능의 container 역할을 할 div 를 사용할게요.. -->
+	<div class="input-group">
+		<!-- CSS 가 정의된 input tag 사용 -->
+		<input id="item" class="form-control" type="text" placeholder="할일을 적어주세요!">
+		<button type="button" class="btn btn-primary" onclick="addItem();">할일추가</button>		
+	</div>
+	<hr/>
+	<!-- 항목(list)을 하위 노드로 갖는 UL, OL 사용함. -->
+	<ul id="todolist" class="list-group"></ul>
+</div>
+
+<script type="text/javascript">
+function addItem(){
+	// 이 핸들러는 추가 버튼에 이벤트시마다, item 노드의 값을 가져와서, list 노드를 생성후, 해당 노드의 값으로 설정합니다.
+	// 이때 list 노드는 부모 노드의 하위로 존재해야 하기때문에, 부모 노드인 UL(id = todolist) 를 찾아서 자식으로 추가되어야 합니다.
+	// 또한 추가 되어질때 속성으로 style 을 bootstrap 을 적용예정이기 때문에 CSS 속성의 이름(className)의 값으로 BootStrap 의 속성값을 지정합니다.
+	
+	let todo = document.getElementById('item');
+	let list = document.getElementById('todolist');
+	let listItem = document.createElement("li"); // 리스트의 항목 노드를 생성하는 메서드를 이용해서 node 생성함
+	
+	// listItem 에 bootstrap class 적용함
+	listItem.className = "d-flex list-group-item list-group-item-action list-group-item-warning";
+	
+	// 삭제버튼을 만들어 볼게요.
+	let xbtn = document.createElement("button");
+	
+	// 버튼에 class 적용합니다.
+	xbtn.className = "btn-close ms-auto";
+	
+	// 버튼에 이벤트를 적용할게요.
+	xbtn.onclick = function(e){ // 이벤트 객체를 이용해서 어떤 노드에서 발생된 이벤트인지를 알아냅니다. 속성으로는 target.parentNode 을 이용합니다.
+		// 이를 이용하면 발생된 이벤트의 부모노드를 리턴하고 이 노드의 메서드인 removeChild() 를 이용해서 자식 노드를 삭제합니다. 
+		// 삭제될 노드를 찾아서, 부모입장에서 자식을 삭제해야합니다. 전에 강의했듯이, 삭제는 부모가 하는겁니다. 자신이 삭제 안됩니다.
+		let pnode = e.target.parentNode;
+		list.removeChild(pnode);
+	}
+	
+	listItem.innerText = todo.value;
+	
+	// 항목인 listItem 에 속성노드를 이용해서 위의 값을 설정했으니, 다음 자식노드로 버튼을 추가합니다.
+	listItem.appendChild(xbtn);
+	
+	list.appendChild(listItem);
+	
+	todo.value = "";
+	todo.focus();	
+}
+
+</script>
+
+
+
+
+</body>
+</html>

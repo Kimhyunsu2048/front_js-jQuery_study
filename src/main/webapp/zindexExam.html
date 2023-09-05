@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>요소의 겹침을 지정하는 속성</title>
+<!-- 
+z-index : 요소를 stack 화 하여 표현하는 속성값입니다. 여기서 stack 이라고 하는건...음...
+이 속성은 반드시 position 이 absolute or fixed 에만 적용되어집니다.
+속성값이 클수록 앞에 놓여지게 되어집니다. 당연히 음수인 경우엔 제일 뒤에 배치되겠네요.
+ -->
+<style type="text/css">
+#b1{
+	position: absolute;
+	top: 0px; left: 0px;
+	width: 100px; height: 100px;
+	background-color: blue;
+	z-index: 50;
+}
+#b2{
+	position: absolute;
+	top: 30px; left: 30px;
+	width: 100px; height: 100px;
+	background-color: yellow;
+	z-index: 100;
+}
+#b3{
+	position: absolute;
+	top: 60px; left: 60px;
+	width: 100px; height: 100px;
+	background-color: red;
+	z-index: 200;
+}
+</style>
+</head>
+<body>
+
+<div id="b1">b1</div>
+<div id="b2">b2</div>
+<div id="b3">b3</div>
+</body>
+</html>

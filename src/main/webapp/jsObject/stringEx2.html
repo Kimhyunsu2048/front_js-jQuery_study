@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>정규화 패턴식(Regular Expression)</h2>
+
+<form action="">
+	전번 : <input type="text" id="pNumber" onblur="keyEvt(this);"> <!-- 여기 this는 input 객체 전체 -->
+	<!-- onblur : onfocus와 반대의 개념 -->
+</form>
+
+<script type="text/javascript">
+/*
+정규화 패턴식은 모든 언어에서 사용되는 문자열 검색 패턴입니다. 알아두면 좋습니다.
+이 패턴식은 일반적으로 문자열 객체의 특정 메서드와 연동되어 사용되거나, Match 라는 객체를 생성해서 이의 메서드를 이용해서
+사용하는 방식을 선택합니다.
+
+문자열 객체내의 메서드가 Matcher(자바에서 사용하고), RegExp 객체의 메서드와 동일한 것이 많기때문에, 문자열 객체의 메서드를 많이 이용합니다.
+
+대표적인 메서드로는 search("찾을문자열") 이 있는데, 파라미터로 주어지는 값이 존재하면 해당 index 를 리턴하도록 되어있습니다.
+
+주의할점은 indexOf 와 비슷해보이지만, indexOf 는 오버로딩(파라미터 갯수가 여러개) 되어있고, search 는 그렇지 않다는 겁니다.
+
+이말은 search 라는 메서드는 정규화 패턴식을 이용해서 문자열을 찾을때 사용한다는 의미 입니다.
+
+search() 는 파라미터가 오직 하나만 올수 있는 메서드입니다. -> 파라미터에 문자열이나 객체가 올수 있음
+
+replace("변경대상","변경값") : 전주에 봤던 대체 메서드입니다.
+
+match("regularPattern 문자") : 주어진 문자열이 있는지 확인후 있다면, 배열로 리턴해주는 메서드...
+
+// 여러분이 엔터를 입력하면, 내부적으로는 \n\r 이라는 두개의 키가 조합되어 입력됩니다. newLine and Carrage Return 
+// 아래의 문장에서 enter 를 찾아서 출력해보도록 할게요.
+
+*/
+let msg = "I'm gonna be \n\r A Good Programer \n\r To be Or Not To be....";
+
+//alert(msg.search('be')); // 일반문자열을 파람으로 줘서 찾기..
+
+// 정규화식 패턴을 이용해서 문자열찾기.. / 사이에 패턴문자나 찾으려는 문자열을 주어줍니다. /
+//alert(msg.search(/be/)); // 검색문자값에 '' 없어야 합니다.
+
+// 전화번호를 입력받아서 번호 사이에 있는 - 를 모두 대체(replace) 해보도록 할게요..
+
+let pNum = '010-1234-5678';
+
+function keyEvt(e){ // 파라미터 선언해야함
+	// 전번값을 변수에 할당할게요.
+	let num = e.value;	 // 값 입력후 tab 키 누를 것
+	//alert(num);
+	
+	num = num.replaceAll("-","");
+	
+	//alert(num);
+	
+	//match() : 정규화식의 패턴을 파라미터로 줍니다. /찾을문자열/조건 identifier(조건 지시어)
+	
+	const arr1 = msg.match(/be/ig);	//i는 intensive 의 약자로 검색어를 처음으로 찾을때 사용, g는 global 의 의미로 문자열내에서 검색어를 모두 찾으라는 의미
+	//alert(arr1.length + " : " + arr1[0]);
+	
+	//for 문 강의시에 for의 형태가 3가지가 있다라고 했는데...
+	
+	// 메서드체인(method chain or call chain 이라고도 함...) : 리턴값이 객체인 경우, 해당 객체의 메서드를 계속 호출해서 결과를 도출하는 기법
+	// 위 내용이 이해가 되려면, 반드시 리턴타입이 무엇인지를 이해해야 합니다.
+	
+	let val; // forEach 에서 콜백함수내에서 사용될 변수선언..
+	
+	msg.match(/be/ig).forEach(function(x,idx,arr){
+		console.log(x);
+		return val = x;
+	}); 
+	
+	//alert(val);
+	
+	//"Saturday";
+	
+	let msg2 = msg.replaceAll(
+		(val = msg.match(/be/g).forEach(function(y){
+			return val = y;			
+		})),"saturday"		
+	);
+	
+	alert(msg2);
+	
+	
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+function checkDate(){
+	// 사용자가 선택한 날짜값 얻어내기.
+	let s = document.getElementById('pdate').value;
+	let pdate = new Date(s);
+	
+	alert(pdate);
+	let today = new Date();
+	
+	let diff = today.getTime() - pdate.getTime();
+	
+	// 위에서 편차로 구해진 millis 를 일단위로 환산해 볼게요.
+	
+	let days = Math.floor((diff / (1000 * 24 * 60 * 60))); // 소수점 이하 버림  
+	
+	//let days = Math.floor((today - pdate) / (1000 * 24 * 60 * 60));
+	
+	if(days > 30){
+		alert('교환 기간이 지나서 안됨');
+	}
+	
+}
+
+</script>
+  
+<!-- 
+이 예제는 사용자가 특정 물건을 구입한 날짜를 주면, 그 날짜값을 계산후, 환불 가능여부를 출력시키는 간단한 예시입니다.
+날짜 기한은 30일로 할게요..
+ -->
+ 
+ <!-- 
+ date picker 를 이용한 날짜 선택시키기
+  -->
+구입날짜 선택해 : <input type="date" id="pdate">
+<button onclick="checkDate();">환불가능확인하기</button> 
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>브라우저 내장객체 알아보기(Browser Based Object)</title>
+</head>
+<body>
+<!-- 
+	브라우저의 모든 대상을 객체화 해서 이를 프로그램에서 사용하는 예제입니다.
+	모두 계층(Document Object Model) 로 구성되어 있고, 이중 최상위 객체는 window 입니다.
+	브라우저 전체에 대한 기능과 속성을 담당하고 있으며, 소속된 메서드는 대부분 객체이름 없이 호출 가능합니다.
+	alert, confirm, prompt, setTimeout, setInterval 등이 이에 속하며, 객체명없이 사용했습니다.
+	
+	이중 open 이라는 함수도 알아볼게요.
+	open() 은 새창을 띄우는 대표적인 메서드로, 파라미터로는 아래를 참고하세요.
+	open('소스페이지 url', ['창이름'], ['기타 창(frame) 속성들..']);
+	
+	open() 은 자체로도 사용되지만 변수에 할당해서 참조객체로도 활용 가능합니다.
+	열린창을 닫을때 사용되는 close() 를 호출하면 창은 닫힙니다.
+	위 속성중 [] 은 옵션입니다.
+	
+	open() 을 이용해서 새창을 열면, opener 라는 속성을 사용할 수 있게됩니다.
+	기본적으로 이 속성의 값은 새창을 연 부모창이 ref 되어집니다. 이 값은 self 난 "" 등으로 변경 가능합니다.
+-->
+
+<h2>이건 opener 의 컨텐츠입니다.</h2>
+
+<a href="windowObj2.html">windowObj2로 가기</a>
+<script type="text/javascript">
+	// 기본적으로 모든 브라우저는 팝업을 차단하도록 설정 되어있습니다.
+	// 때문에 open 호출시 차단되었는지 여부는 참조 객체의 값이 null 여부로 판단합니다.
+	// 해서 null 인 경우엔 alert() 을 호출해서 차단 해제를 요청하도록 정의 할게요.
+	
+	// 기본 개념은 알아두되, 만들어진 것을 가져다 씀.
+	// 속성은 속성간의 사이에 공백을 기준으로 적용됨
+	let p_Opened = window.open("notice.html","pop",'width=400 height=300 left=100 top=200'); 
+	if(p_Opened == null){
+		alert("팝업 차단 해제바람");
+	}
+	
+	p_Opened.moveBy(100,300);
+	
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+// 테이블에 Row 를 동적으로 추가하는 함수 정의합니다.
+// 순서는 다음과 같음
+// 1. 적용할 테이블을 찾습니다.(DOM 이용)
+// 2. 테이블노드의 로우를 추가하는 메서드를 이용해서 Row 를 추가합니다. insertRow([param]), delete(param 필수 적용);
+// 3. 로우가 추가되었으면, 이 내부(실제 데이터는 td 와 td 사이에 존재함.. 이 영역을 cell 이라고 합니다.)
+// 4. 위 td를 추가하는 메서드가 insertCell() 메서드입니다.
+// 5. 위 cell 영역에 content 를 추가하는데, 이때는 속성을 사용합니다. 셀은 입력태그가 아니기 때문에 값을 넣는 속성.. 뭔지 아시죠?? 
+// innerHTML 의 값으로 입력태그를 생성해서 넣어줍니다.
+
+// 기본 Row 하나는 존재하게 하고, 추가되는 Row 의 index 를 설정할 cnt 변수 선언.
+let cnt = 1;
+function addRow(){
+	let area = document.getElementById('area');
+	
+	// row 생성 후 cell(td tag) 을 추가해야 하기 때문에 생성된 row node 를 변수에 담습니다. 그래야 다시 row node 객체를 이용가능하기때문이죠.
+	let insert = area.insertRow(cnt + 1); 
+	let subject = '<input type="text" name="subject" size="15"/>'; //cell 에 추가될 입력태그를 문자열로 생성할게요.
+	//cell에 subject 추가하도록 노드의 insertCell() 함수를 호출하고, 속성값에 inputTag 를 넣어줍니다.
+	insert.insertCell().innerHTML = subject;
+	
+	let jumsu = '<input type="text" name="jumsu" size="15"/>';
+	insert.insertCell().innerHTML = jumsu;
+	
+	cnt++;
+	
+}
+
+function delRow(){
+	//위에서 cnt 변수를 이용하지 않게되면, 컬럼헤더까지 다 지워지게 됩니다..아래 부분을 주석하고도 해보세요.
+	if(cnt == 1){
+		alert("더이상 삭제 불가");
+		return;
+	}
+	
+	let area = document.getElementById('area');
+	area.deleteRow(1);
+	cnt--;
+}
+
+// 폼데이터를 검증해서 올바른경우만 true 를 리턴시킵니다. 아닌경우엔 false 를 줘야 서버로 요청이 되지 않습니다. 꼭 기억하세요!!!
+function check_form(){
+	// 이 폼데이터를 검증시에 주의해야 할것이 있습니다.
+	// 검증을 수행할 노드들이 동적이라는 것입니다. 즉 최소 1개에서 ~ n개의 노드들이 존재한다는 것입니다.
+	// 과목명 검증 할게요..
+	let name = myform.name.value;
+	if(name == ''){
+		alert("이름 기입하세요");
+		myform.name.focus();
+		return false; // 이름값이 없으니 false 리턴해줍니다.
+	}
+	
+	// 점수 및 과목 항목에 대한 validation 처리합니다.
+	
+	// 만약 입력노드가 1인 경우와 아닌 경우를 모두 처리하기 위해 조건을 사용합니다.
+	if(cnt == 1){
+		let subject = myform.subject.value;
+		let jumsu = myform.jumsu.value;
+		
+		// 과목명, 점수가 공백이거나, 점수값이 수치가 아니라면
+		if(subject == '' || jumsu == '' || isNaN(jumsu)){
+			alert('과목명, 점수가 공백이거나, 점수값이 수치가 아님');
+			return false;
+		}
+	}else{
+		// 만약 입력태그가 하나 이상 존재한다면.. 배열로 폼 하위의 노드들이 리턴되므로, 이를 이용해서 검증을 합니다.
+		for(let i = 0; i<cnt; i++){
+			let subject = myform.subject[i].value;
+			let jumsu = myform.jumsu[i].value;
+			
+			if(subject == '' || jumsu == '' || isNaN(jumsu)){
+				alert('과목명, 점수가 공백이거나, 점수값이 수치가 아님');
+				return false;
+			}			
+		}
+	}//End of else..여기까지가 각 노드의 validation 조건 끝..
+	// 이 부분의 조건 이후의 함수 실행 영역.. 여기까지 코드가 온다는 말은 위의 조건이 모두 false 란 뜻.. 즉 모든 값이 올바르게 입력됨
+	// 따라서 서버에 action 을 수행하도록 true 리턴함
+	return true;
+}
+
+</script>
+</head>
+<body>
+<h2>성적 계산 페이지</h2>
+
+<!-- 여러분이 성적을 입력하고, 그 결과를 서버에게 요청을 합니다. 아래의 action 속성의 값, 즉 calScore.jsp 에게 요청(request) 하게됩니다. -->
+<!-- http protocol 을 사용해서 요청(request), 응답(response) 이 이뤄지는데, 요청시에는 반드시 요청 방식(method) 중 하나를 반드시 사용해야 합니다.
+요청메서드(방식)은 약 7개로 정의되었는데, get(default), post, put, delete, option, head 등으로 되어있습니다.
+각 메서드는 서버에게 요청하는 의미로 해석하면 되는데, 가장 많이 쓰이는게 get, post이고, get 은 정보를 조회(select) 요청을 할때,
+post 는 정보를 저장, 수정, 삭제 등을 할때 쓰이는 메서드입니다. 반드시 기억하세요.!!!! 나머지 메서드는 적용시 그때그때 설명드릴게요..
+-->
+<form action="calScore.jsp" method="post" onsubmit="return check_form();" name="myform"> <!-- return이 빠지면 무조건 submit이 됨 -->
+	이름 : <input type="text" name="name"><br/>
+	
+	<h3>과목과 점수입력</h3>
+	<input type="button" value="추가" onclick="addRow();">
+	<input type="button" value="삭제" onclick="delRow();">
+	<input type="submit" value="전송(계산)"><br/>
+	
+	<table id="area" width="400" border="1">
+		<tr>
+			<th width="200">
+				과목명
+			</th>
+			<th width="200">
+				점수
+			</th>
+		</tr>
+		<tr>
+			<td>
+				<input type="text" name="subject" size="15"/>				
+			</td>
+			<td>				
+				<input type="text" name="jumsu" size="15"/>
+			</td>
+		</tr>
+	</table>
+</form>
+
+
+</body>
+</html>

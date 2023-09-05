@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+css 를 이용해서 이미지나 컨텐츠, 요소(element) 에 effect 를 줄수 있습니다.
+종류는 굉장히 많은데, 간단히 투명도, 전환, 애니메이션 등만 볼게요. 
+ -->
+<style type="text/css">
+img{
+	opacity: 0.4;
+	transition: width 0.5s;
+}
+img:hover{
+	opacity: 1.0;
+	width: 200px;
+}
+
+/*
+전환효과(transition) : 특정 요소의 형태를 다른 형태로 전환 시키는 요소 입니다. 예전엔 스크립트나 플래쉬를 이용했지만, 지금은 CSS 로도 가능합니다. 이미지에는 적용 불가
+문법은 다음과 같아요 : transition : 변환대상(우리가 아는 모든 속성) 지속시간(초단위) 
+*/
+
+/* 주석 적용 단축키 : ctrl+shift+/ */
+
+div{
+	background-color: yellow;
+	height: 100px;
+	width: 150px;
+	border: 1px solid black;
+	transition: width 5s, height 5s, border 5s, transform 5s;
+	-webkit-transition: width 5s, height 5s, border 5s, -webkit-transform 5s;
+}
+
+div:hover{
+	width: 250px;
+	height: 250px;
+	border: 10px dotted red;
+	transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+}
+
+</style>
+</head>
+<body>
+
+<h2>투명도(opaque) 효과 줘보기</h2>
+<img alt="" src="lion.png" width="150" height="120">
+<img alt="" src="audio.png" width="150" height="120">
+
+<hr>
+<div>Mouse Over 해보세요.</div>
+
+</body>
+</html>

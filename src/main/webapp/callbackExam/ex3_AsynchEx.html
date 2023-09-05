@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p>3초 후에 페이지의 내용이 변경됩니다.</p>
+<h1 id="demo"></h1>
+
+<h1 id="clock" style="background-color: cyan;"></h1>
+
+<script type="text/javascript">
+// Asynchronous Javascript : 자바스크립트의 비동기 함수 제어..
+
+// 비동기란(Asynchronous) 제일 간단하게 표현하자면, 실행은 지금 하지만 결과는 나중에 꼭 알려줄게(I'll be back)
+// 이라는 의미로 해석하시면 됩니다. 즉 반드시 수행 결과를 되돌려 줄테니 그 시간이 좀 걸리더라도, 넌 다른 할일 일있으면 해, 나만 기다리지 말고..란 뜻입니다.
+
+// 위에서의 논리대로, 하나 이상의 독립 작업(Thread) 를 수행시엔 각각의 수행 결과가 리턴되는 시간도 틀리게(비동기) 됩니다.
+// 이럴때, 각각의 후속작업을 수행 할 함수를 지정하는데, 이때 사용되는 함수를 콜백 함수를 이용합니다.
+
+// 결론 : 비동기 작업을 수행할 일이 없을때는 콜백 없어도 됩니다. 이 말은 반대로하면, 비동기 작업을 수행할때는 반드시 콜백을 사용해야한다는 의미입니다.
+
+// 자바스크립트의 비동기를 수행하는 대표적인 global 함수는 setTimeout, setInterval 이 있습니다.
+// 이를 이용해서 비동기 작업이 무엇인지 알아볼게요.
+
+// milliseconds 이후에 수행할 작업내용을 담은 함수(콜백함수)가 수행됩니다.
+//setTimeout(//, milliseconds);
+setTimeout(myFunction2, 5000); // 콜백함수가 기명인 경우엔 반드시 "()" 빠진 함수명만 와야합니다.
+
+
+function myFunction(){
+	document.getElementById('demo').innerHTML = "힘드시죠??";
+}
+function myFunction2(){
+	document.getElementById('demo').innerHTML = "힘들어 죽을것 같죠^^??";
+}
+myFunction();
+
+// 이번엔 익명 화살표 함수를 이용해서 또다른 비동기 작업을 수행해 볼게요.
+setTimeout(() => {
+	document.getElementById('demo').innerHTML = "이건 익명 화살표 함수의 콜백 내용입니다.";
+}, 10000);
+
+// 콜백 함수를 지정된 millis 마다 수행하도록 하는 함수. setInterval()
+setInterval(() => {
+	let d = new Date();
+	document.getElementById('clock').innerHTML = d.getHours() + " : " + d.getMinutes() + " : " + d.getSeconds();
+}, 1000);
+
+
+
+</script>
+</body>
+</html>

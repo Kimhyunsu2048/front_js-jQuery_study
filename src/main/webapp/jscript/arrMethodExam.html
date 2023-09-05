@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script>
+/*
+*스크립트 배열 메서드(method) : method 는 객체지향에서 어떤 행위를 뜻합니다. 쉽게 말하자면 여러분이 객체를 생성하거나, 제공 받을경우
+그 객체가 가지고 있는 속성값 등을 메서들 통해 제어(get, set, 가공) 할 수 있도록 한다는 말입니다.
+자바스크립트는 객체지향(OOP) 가 아닌 객체기반(Object Base Programming) 이기 때문에, 많은 내장객체(Implict Object)를 API 를 통해 제공합니다.
+이 객체중에 배열객체가 가지고 있는 메서드가 어떤 일을 하는지를 알아봅니다. 만약 이러한 메서드가 없다면 프로그래밍을 할 수 없을정도록 난이도가 올라갑니다.
+*/
+
+const myGroup = ['재현','아린'];
+
+// toString() : 배열의 모든 값을 리턴해줍니다. 기본적으로 , 를 기준으로 리턴합니다.
+// join("delemeter"): delimeter 란 구분자를 뜻합니다. 배열의 값을 주어진 문자열타입의 구분자로 리턴시킵니다.
+
+console.log(myGroup.join(":"));
+
+// pop() 이란 메서드가 있는데, 음.. 이건 나중에 자료구조할때 설명할 수 있겠지만, 일단은 기본개념으로 알고 계세요..
+// pop() 은 stack 자료 구조에서 마지막 idx 의 값을 삭제하면서 리턴시키는 메서드 입니다.
+myGroup.pop();
+console.log(myGroup);
+
+// pop(), push() 이건 나중에 콜백 함수 할때 다시나옵니다. 기억해주세요.
+
+// push() : 마지막 index 에 값을 추가하는 메서드입니다. 보통은 콜백 메서드를 정의 할때 우선순위를 나중에(순차적인) 적용하거나 할때 사용됩니다.
+// 리턴값은 추가된 배열의 length 를 리턴합니다.
+let res = myGroup.push('창성');
+console.log(res);
+
+
+// 위의 pop()과 push() 의 반대개념의 메서드..shift(), unshift()
+// 마지막 index 가 아닌 첫 index 에 데이터 insert 시키는 메서드입니다.
+// 일반적으로 콜백 메서드를 호출할때 우선순위를 바로 적용코자 할때 사용됩니다.
+
+myGroup.shift('이광재씨');
+console.log(myGroup);
+
+const a1 = [1,2,3];
+const a2 = ['a','b'];
+const a3 = ['가','나','다','라'];
+
+const mergeArr = a1.concat(a2,a3);
+
+console.log(mergeArr);
+
+a1.splice(1,1,'a','b');
+console.log(a1);
+
+const sl1 = a3.slice(1,a3.length-1);
+console.log(sl1);
+
+
+</script>  
+
+</body>
+</html>

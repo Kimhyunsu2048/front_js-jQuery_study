@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1 id="text01"></h1>
+<h1 id="text02"></h1>
+<script type="text/javascript">
+var text01 = document.getElementById('text01');
+var text02 = document.getElementById('text02');
+
+//문서전체영역에 mousemove 이벤트를 등록해서 콜백에 이벤트객체를 전달받습니다.
+//그리고 마우스포인터의 좌표값을 속성을 통해 얻어냅니다.
+document.onmousemove = function(mouseEvt){
+	var x = mouseEvt.pageX;
+	var y = mouseEvt.pageY;
+	
+	text01.textContent = x;
+	text02.textContent = y;
+}
+
+/*
+ * 마우스이벤트를 발생시켜서, 발생된 이벤트객체를 이용해서 프로그램에 적용하는 예제입니다.
+ * 모든 이벤트에는 해당 이벤트에 따른 정보를 가진 객체인 발생된 이벤트 객체를 프로그램으로
+ * 자동으로 던져줍니다. 따라서 프로그래머는 해당 객체의 속성, 메서드를 이용해서 필요한 후속
+ * 작업을 할 수 있게되어지게 됩니다.
+ */
+
+</script>
+</body>
+</html>

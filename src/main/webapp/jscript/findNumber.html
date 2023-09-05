@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+/*
+사용자가 넣은 값을 비교해서 같으면 빙고!!!, 틀리면 높거나, 낮거나를 힌트 창에 출력토록 하세요.
+그리고 매번 실행할때마다 실행 횟수는 1씩 증가 합니다. 이 때 사용되는 변수는 var count 로 전역변수로 
+선언하시고 함수에서 변환 시키셔야 합니다.
+한번씩 확인 할때마다 이 변경된 값은 추측횟수창에 숫자로 표시되어야 합니다.
+*/
+let comValue = Math.floor((Math.random()*100)+1);
+console.log(comValue);
+let guessCount = 0;
+var msg = "";
+
+function guess(){		
+	guessCount++;
+	let userValue = parseInt(document.getElementById('user').value);
+	document.getElementById('guessCount').value = guessCount;	
+	
+	if(comValue == userValue){
+		msg = "빙고!!!";	
+	}else if(comValue > userValue){
+		msg = "입력 숫자가 낮습니다.!!!";
+	}else if(comValue < userValue){
+		msg = "입력 숫자가 높습니다.!!!";
+	}
+	document.getElementById('res').value = msg;
+}
+
+</script>
+</head>
+<body>
+<h2>숫자 맞추기 게임</h2>
+<h3>이 게임은 컴이 1 ~ 100 사이의 랜덤값을 생성하면 여러분이 값을 입력후 맞는지 여부를 확인하는 게임입니다.</h3>
+
+<form>
+	숫자 : <input type="text" id="user" size="5">
+	<input type="button" value="확인" onclick="guess();"><br/><br/>
+	추측횟수(실행횟수) : <input type="text" id="guessCount" size="5" value="0"><br/><br/>
+	힌트 : <input type="text" id="res" size="16">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Link 와 list 에 스타일 적용하기</title>
+<!-- 
+	링크의 스타일(의사스타일 : 가상요소) 를 지정할때는 반드시 아래의 순서대로 하셔야 합니다.
+	a:hover(링크에 마우스오버될때를 말함) 는 반드시 a:link, a:visited 다음에 위치해야 합니다.
+ -->
+<style type="text/css">
+a.style1:link{ color: cyan; }
+a.style1:visited{ color: fuchsia; }
+a.style1:hover{ font-size: 1.5em; }
+
+/*list 에 스타일 적용하기*/
+
+ul.a{
+	list-style-type: circle;
+}
+ul.b{
+	list-style-type: disc;
+}
+ul.c{
+	list-style-type: square;
+}
+</style>
+</head>
+<body>
+
+	<p>마우스를 오버하면 스타일이 변경되요.</p>
+	
+	<a class="style1" href="http://www.daum.net">다음</a>가기
+	
+	<hr>
+	<!-- 
+		list(ul, ol) 에 스타일 적용해 보기.
+		스타일의 속성으로는 : style(한번에 정의하는 속성)
+		style-image : 리스트에 적용되는 image 설정 : list-style-image: url('사용될 이미지 URL')
+		position : 리스트의 마커가 왼쪽 or 오른쪽 결정
+		type : 이미지를 사용하지 않을 경우 마커의 타입(종류) 결정
+	 -->
+	
+	<ul class="a">
+		<li>HTML5</li>
+		<li>JavaScript</li>
+		<li>React</li>
+	</ul>
+	<ul class="b">
+		<li>HTML5</li>
+		<li>JavaScript</li>
+		<li>React</li>
+	</ul>
+	<ul class="c">
+		<li>HTML5</li>
+		<li>JavaScript</li>
+		<li>React</li>
+	</ul>
+</body>
+</html>

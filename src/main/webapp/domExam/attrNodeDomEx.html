@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!--  
+DOM의 속성 NODE 에 대해서 알아보기..
+속성을 가지고 있는 NODE 의 속성값이나, style 등도 속성인데, 그러한 속성을 변경하거나 할때 사용되는 메서드와, 속성등을 이용해 봅니다.
+순서로는 적용할 노드 찾기 ==> 속성 노드 설정 및 적용하기
+-->
+
+<div>
+	<p id="demo" onmouseover="this.style.visibility='hidden'" onmouseout="this.style.visibility='visible'">
+		여긴 p 태그의 내용부 입니다.
+	</p>
+</div>
+
+<img id="img" alt="내이쁜이" src="../images/cuty1.png" width="350" height="250" />
+
+<!-- 버튼을 생성해서 이벤트를 주고, 핸들러 함수를 통해 이미지 노드를 찾은후, 속성을 변경해 볼게요 -->
+<button onclick="changeImg();">눌러보세요</button>
+<button onclick="changePEleCon();">pTag의 스타일 속성변경하기</button>
+
+<script type="text/javascript">
+function changePEleCon(){
+	//노드찾기1.
+	let pNode = document.getElementById('demo');
+	
+	pNode.style.color = 'red';
+	pNode.style.fontFamily = 'Courier';
+	pNode.style.fontStyle = 'italic';
+}
+
+function changeImg(){
+	document.getElementById('img').src='../images/cuty2.jpg';
+}
+
+</script>
+
+</body>
+</html>

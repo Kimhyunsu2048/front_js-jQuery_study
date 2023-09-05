@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Wish List 알아보기</h1>
+
+<div id="item">
+	<img src="us_hawaii.jpg"/>
+	<br>
+	<button class='over' id='open'>하와이 상세 정보 보기</button>
+	
+	<!-- 정보의 내용은 다시 div 로 그룹해서 p 태그로 보여주면 좀더 깔끔.. -->
+	<div id="desc" class="detail">
+		<h4>하와이 물가</h4>
+		
+		<p>
+		하와이는 미국에서도 물가가 비싼 편에 속한다고 해요.<br> 
+		특히 외식비가 비싸기로 유명한데요.<br> 
+		하와이에서 꼭 먹어야 하는 새우트럭의 새우요리나 수제버거 등 일반적인 한 끼는<br> 
+		약 14달러 이상(약 17,000원~),<br> 
+		레스토랑에서의 괜찮은 한 끼는 약 70달러 이상(약 84,000원~)을 예산으로 잡으면<br> 
+		적당하다고 해요.(택스 불포함)<br>
+		</p>
+		<button id="close">상세 설명 닫기</button>
+	</div>
+</div>
+
+<script>
+// 먼저 각 컴포넌트(Node) 를 찾아서 이벤트를 등록 해보세요. 버튼만 먼저 해보세요.
+// querySelector
+document.querySelector('#open').onclick = function(){
+	// 하와이 설명이 들어있는 Node 를 찾아보세요.
+	document.querySelector('#desc').style.display = "block";
+	document.querySelector('#open').style.display = "none";
+}
+
+document.querySelector('#close').onclick = function(){
+	// 하와이 설명이 들어있는 Node 를 찾아보세요.
+	document.querySelector('#desc').style.display = "none";
+	document.querySelector('#open').style.display = "block";
+}
+
+</script>

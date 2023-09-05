@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<button id="change">글자색 바꾸기</button>
+<p id='ph'>오늘은 수요일 입니다. 모두 힘네요!!</p>
+
+<script>
+/* 
+//먼저 이벤트 등록 요소를 객체화 해서 변수에 담아봅니다.
+//가져온 버튼에 onclick 이벤트를 등록하고 핸들러 함수를 대입합니다.
+//이때 중요한건, 반드시!!!! 함수명만 넣어야 합니다. 
+
+var chgBtn = document.querySelector("#change");
+chgBtn.onclick = changeColor;//핸들러 함수 지정함.
+*/
+/* 
+function changeColor(){
+	//p 요소를 찾아서 내부 컨텐트의 컬러를 변경해봅니다.
+	var p = document.querySelector("#ph");//모든 p 태그를 다 가져옵니다.(배열식으로)
+	p.style.color = "orange";
+}
+ */
+//위 코드를 좀 더 줄여볼게요.
+//document.querySelector("#change").onclick = changeColor;
+
+ 
+//위 코드를 좀더 줄여 볼게요..무명함수를 이용해서 핸들러를 등록합니다.
+//참고로 무명 함수는 일회성일때 사용합니다. 한번이상 사용할 경우엔 위처럼 정의된 함수를 
+//계속 호출해서 재사용합니다. 차이점을 기억하세요.
+
+document.querySelector("#change").onclick = function(){
+	document.querySelector("#ph").style.color = 'cyan';
+} 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+스크립트에서 이벤트 구현 하는 방법
+1. 모든 컴포넌트는 이벤트에 대상이 됩니다. 이 대상에 이벤트를 등록(add Event) => 
+핸들러 함수 등록 => 핸들러 함수 호출 => 이벤트 driven 이런 순으로 진행됩니다.
+
+2.이벤트를 등록하는 기본적인 방법으로는 Tag 정의시에 onEventName = handler function() 방법과
+
+addEventListener("이벤트명(on 없는)", "핸들러 등록") 방법을 배웠습니다.
+
+3.이번 방법은 DOM 메서드 중에 querySelector("id,class,name 등..") 을 통해 Element 를 찾은후
+이벤트를 등록하는 방법 및 구현 하는 방법을 보겠습니다.
+
+문법은 다음과 같습니다. querySelector("Element").event종류 = function;
+*/
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+/*
+자바스크립트 조건문 : 조건문이란, 실행문을 분기 시키는 역할을 합니다.
+실행문이란, 명령문인거 다 아시듯, 조건에 따라서 이걸, 다른조건엔 저걸, 이도저도 아닐때 요걸 실행하라는 의미입니다.
+그래서 여러 교제에서는 분기문 이라고도 합니다.
+
+대표적인 조건문으론 2개를 사용합니다.
+아래 문법에서 [] 표식은 optional 입니다. 즉 필요에 따라서 넣을수도 아닐수도 있다든 뜻입니다.
+1. if(조건식){조건식 결과가 true시 실행 구문} [else if(조건식){조건식 결과가 true시 실행 구문},,,,n개의 else if()],
+[else{주의!!! 이 구문은 조건식이 없어야 합니다. 또한 반드시 if가 나온후에 나와야 합니다. 즉 if 없는 else 는 없습니다.}]
+*/
+
+
+let myMoney = Math.floor((Math.random() * 10000) + 1);	/* 1 ~ 10000 사이의 실수가 발생됩니다. */
+console.log(myMoney);
+
+let taxiFare = 5000;
+let busFare = 2000;
+
+// 5000원 이상이면 택시타고 갑니다.
+if(myMoney >= taxiFare){
+	// 위 조건식이 true라면 이 구문을 실행하라는 의미입니다.
+	console.log("택시를 타고 학원에 갑니다." + myMoney);
+}else if(myMoney >= busFare){
+	cosole.log("버스를 타고 학원에 갑니다." + myMoney);
+}else {
+	console.log("도보로 학원에 갑니다." + myMoney);
+}
+
+
+var gender = "f"; // 여성을 넣을게요
+
+// 아래의 코드는 여성 전용 사우나의 예입니다.
+// 오로지 여성인 경우만 입장 가능합니다.
+
+// 변수나 수행문은 코드가 처음 나왔을때의 가장 가까운 블락을 기준으로 소속이 정의됩니다.. 반드시 기억할 것!!!
+
+function a(){
+	if(gender == "f"){
+		console.log("성별 확인 되었으니 입장하세요.");
+		return;	// return을 만나면 아래 코드를 실행하지 않고, 함수를 종료
+	} 	
+	console.log("난 남잔데 입장해야지..~~");	
+}
+
+a();
+
+var age = prompt("나이 입력하세요");
+age = parseInt(age); // 문자열값으로 되어있는 정수를 파싱해서 정수값만 return 합니다.
+
+// 내 나이는 age + 10 입니다 라고 콘솔에 입력하세요
+console.log("내 나이는 " + (age+10));
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

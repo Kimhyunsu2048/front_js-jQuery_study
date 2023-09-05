@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Location 객체</title>
+</head>
+<body>
+<p>
+Location 객체는 사용자의 주소창을 관리하는 객체입니다. 주로 많이 사용되는 속성으론 href 라는 속성인데, 이 속성에 보내고자 하는 URL 을 <br>
+넣어주면 URL 로 요청을 재전송(Redirect) 하게 됩니다.<br>
+path(패스경로), hostname, replace("대체 url"), reload() 페이지 재요청 등이 있습니다.
+</p>
+
+<script type="text/javascript">
+// 여기를 로그인을 처리하는 hidden 페이지(사용자 눈엔 보이지 않는 페이지) 라고 할때, 사용자의 정보를 검증해서
+// 맞으면 로그인완료 페이지로, 틀리면 로그인요청 페이지로 보내는 로직을 작성할게요..
+
+let loginData = false; // 모든 데이터가 맞다고 가정할 경우 값이 true, 틀릴 경우 false
+
+if(loginData){
+	alert("로그인 되었습니다.");
+	location.href = "loginSuc.html";
+}else{
+	alert("ID 또는 비번이 틀림.");
+	location.href = "loginForm.html";
+}
+
+</script>
+</body>
+</html>

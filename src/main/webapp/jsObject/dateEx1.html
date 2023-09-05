@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+/*
+Date 객체 : 날짜와 시간을 담당하는 객체입니다. 기본적으로 시스템으로 부터 날짜를 가져오기 때문에, 시스템의 날짜값이 변경이 되면, 이 객체의 날짜값도 자동 변경됩니다.
+
+이 객체는 내부적으로 생성자 함수를 정의해놓은 상태라, 객체 생성시엔 일반적으로 new 키워드를 이용해서 필요한 파라미터를 전달하면,
+해당 파라미터를 초기화해서 날짜 값을 생성합니다. 참고로 모든 컴퓨팅에서는 날짜는 다음의 기준을 따릅니다.
+
+기본단위 millisecond(1/1000) 초.. 이 단위가 누적되어서 초, 분, 시간, 일, 월, 년 단위로 환산이 되어집니다.
+또한 기본적으로 날짜는 1970년 1월 1일 자정을 기준으로 시작되며, 현재 시간은 그 시작점부터 흐른 millisecond 값 입니다.
+
+*/
+
+// 생성자 함수를 볼게요. 자세한건 매뉴얼 참조하세요.
+
+let now = new Date();
+
+console.log(now.toString());
+console.log(now.toLocaleString());
+
+// 날짜값을 파라미터로 줘서 해당 날짜로 세팅되게 하는 생성자 함수 호출한 d1 객체 생성
+var d1 = new Date(2023, 11, 25);
+
+console.log(d1.toLocaleString()); // 2023.12.25 -> month는 인덱스 번호로 가져오기 때문에 +1이 됨
+d1 = new Date(); // 시스템의 현재 시간 객체로 재생성함
+console.log(d1.getDay()); // 6 -> 요일도 번호로 가져옴.
+
+d1.setDate(23); 
+console.log(d1.getDay()); // 0 -> 셋팅한 23일 기준으로 요일을 가져옴
+
+console.log(d1.getMilliseconds());
+
+let xMas = new Date(2023,11,25);
+
+console.log(xMas - now); 
+console.log((xMas - now)/1000/24/60/60); 
+
+console.log(now.getTime());
+
+
+
+</script>
+</body>
+</html>

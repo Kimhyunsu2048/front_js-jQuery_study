@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body onload="findDom();">
+<p id='demo'>
+	이건 P 요소내의 content 입니다.
+</p>
+<form name="myForm">
+	ID : <input type="text" name="id" size="15" value="abc">
+</form>
+<form name="uForm">
+	암호 : <input type="password" name="pass" size="15" value="1234">
+</form>
+
+<ul>
+	<li>리스트1</li>
+	<li>리스트2</li>
+	<li>리스트3</li>
+</ul>
+
+<ul>
+	<li>리스트4</li>
+	<li>리스트5</li>
+	<li>리스트6</li>
+</ul>
+
+<script>
+//id 속성과 name 속성을 이용해서 요소의 값 출력해보기..
+function findDom(){
+	//getElementById('id') 를 이용해서 요소에 접근 후 값을 출력 해봅니다.
+	var pEle = document.getElementById('demo');
+	
+	//입력태그(input tag type) 을 제외한 element 의 값을 접근할때는
+	//반드시 innerHTML or innerTEXT 를 사용해야 합니다.
+	
+	//반대로 input tag 타입의 값을 접근할때는 반드시 value 를 사용해야 합니다.
+	//var pEle = document.getElementById('demo').value;
+	alert(pEle.innerHTML);
+	
+	pEle.innerHTML = "내일은 6월 6일 공휴일 입니다";
+	
+	//폼태그를 name 속성을 이용해서 찾아봅니다.
+	var f1 = document.myForm.id.value;
+	
+	//찾는 폼객체에 input 요소의 값 가져와 보기
+	var f2 = document.forms[1].elements[0].value;
+	console.log(f1);
+	console.log(f2);
+	
+	
+	//tag명 으로 element 찾아내기.
+	//하나의 문서에는 하나이상의 tag 가 사용될수 있기에 배열로 리턴시킵니다.
+	
+	var list = document.getElementsByTagName('ul')[0];
+	var lists = list.getElementsByTagName('li');
+	//alert(lists.length);
+	for(let i = 0; i<lists.length; i++){
+		alert(lists[i].firstChild.data);
+	}
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

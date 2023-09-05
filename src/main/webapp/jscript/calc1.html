@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function calc(){
+	// input 요소의 값을 get/set 할때는 반드시 value 속성을 이용합니다.
+	// 이 외의 요소의 값을 get/set 할때는 innerHTML 속성을 이용합니다. 반드시 기억하세요!!!
+	let x = document.getElementById('x').value;
+	let y = document.getElementById('y').value;
+	let op = document.getElementById('op').value;
+	let sum = document.getElementById('sum');
+	
+	x = parseInt(x);
+	y = parseInt(y);
+	let res = 0;
+	
+	/*
+	조건식을 사용할때 지분율 20% 인 switch case 구문을 알아볼게요.
+	먼저 문법은 아래와 같습니다.
+	
+	switch(조건비교값){	  // 비교값은 문자열까지 가능합니다.(숫자, 문자열)
+	
+	case 조건식 :
+		// 위 조건식이 맞다면 실행될 구문
+		break; 하위의 다른 case 구문을 더이상 실행하지 않고 블럭 밖으로 탈출하는 키워드.
+		// 이거 꼭 기억하세요!!! 조건식에서 break 로 탈출(switch block 밖으로 탈출을 의미)하는건 오직 switch 만 가능합니다.
+		// 절대 if 조건식에서 탈출하고자 break; 쓰면 안됩니다. 꼭 기억하세요.
+	case n,,,,,,,
+	
+	default :
+		위 조건 비교 case 가 하나도 true 아닐때 실행될 기본구문.
+		여긴 break; 필요없음.
+	}
+	*/
+	
+/* 	if(op == '+'){
+		res = x + y;
+	}else if(op == '-'){
+		res = x - y;
+	}else if(op == '*'){
+		res = x * y;
+	}else if(op == '/'){
+		res = x / y;
+	}else if(op == '%'){
+		res = x % y;
+	}else{
+		res = "연산자를 올바르게 입력해주세요";
+	} */
+	
+	
+	switch(op){
+	case '+':	// +계산을 요청한 거라면
+		res = x + y;
+		break;
+	case '-':	
+		res = x - y;
+		break;
+	case '*':	
+		res = x * y;
+		break;
+	case '/':	
+		res = x / y;
+		break;
+	case '%':	
+		res = x % y;
+		break;
+	default :	
+		res = "올바르지 않은 연산자네요";
+	}
+	
+	// sum 요소 객체의 value 속성에 결과를 set 할게요
+	sum.value = res;	
+	
+}
+
+</script>
+</head>
+<body>
+<!-- 계산기 프로그램이라고 생각하세요. Calc1.html 으로 생성해서 아래의 로직을 짜세요.
+첫수 입력하고 받고, 두번째 수 입력하고 받고, 연산자(오칙중 하나) 입력하고 받고
+결과를 이렇게 출력하세요
+ex> 10 + 10 = 20 (모든 표현 값들은 변수를 이용해야 합니다.) -->
+<h3>계산기</h3>
+
+<form action="" name="myForm" method="post">
+	첫번째 정수 : <input id="x" /><br>
+	두번째 정수 : <input id="y" /><br>
+	연산자 넣기 : <input id="op" /><br>
+	결과 : <input id="sum" /><br>	
+	<input type="button" value="계산하기" onclick="calc();">
+</form>
+
+
+</body>
+</html>

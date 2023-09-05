@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- HTML Box Model : html 의 요소는 기본적으로 box 형태입니다. 컨텐츠는 박스 내부에 존재하고 해당 박스는 목적에 따라 크기를 조정하거나,
+보이거나, 안보이거나, 색상을 바꾸거나, 라인요소를 주거나 등의 다양한 디자인을 적용 할 수 있습니다.
+
+이중 여러분이 꼭 기억해야 할 것들이 있는데, 아래와 같습니다.(가급적 기억 말고, 이해를 하세요)
+
+contents : 박스의 내용. 텍스트 or 이미지
+padding : 컨텐트와 박스내의 간격을 뜻합니다. 이값이 커지면 당연히 컨텐트는 작아집니다.
+border : 박스의 경계선을 말합니다. 기본적으로 보여지진 않지만, 다양한 효과를 줘서 보여지게 할 수 있습니다.
+margin : border 주변의 영역을 뜻합니다. 이말은 컨텐츠와 컨텐츠와의 경계에 대한 공간을 이 것을 주어 기본적으로 구분지을 수 있습니다.
+만약 값으로 0 을 주면 컨텐츠간의 경계를 없도록 한다는 말입니다.
+
+기억하면 좋아요!! : border 의 한방코드는 다음과 같은 순서를 갖습니다. => width, style, color 이 속성을 border 라는 속성에 한방으로 정의 하시면
+순차적으로 적용됩니다. 단, 이중 경계선의 스타일은 필수 속성입니다. 나머지는 옵션이라는 말입니다.
+ -->
+
+<style type="text/css">
+	div{
+		border: 2px solid red;
+		border-radius: 25px;
+		padding: 10px 20px;
+	}
+</style>
+</head>
+<body>
+
+<p	style="border: 5px solid orange;">한방에 보더 속성 정리 내용</p>
+<p	style="border-style: dashed;
+	border-color: aqua;
+	border-width: thick;
+">없음</p>
+<p	style="border-style: hidden; border-width: 1.2em;">hidden</p>
+<p style="border-style: dotted;">점선</p>
+<p style="border-style: solid;">실선</p>
+
+<hr>
+<!-- HTML 에서는 div 는 다른 컨테이너를 포함하는 컨테이너 역할을 합니다.
+컨테이너는 내부에 다시 component(div 를 포함한 모든 html 요소) 를 포함하는 개념입니다.
+ -->
+<div>
+	border-radius 속성을 사용하면 둥근 경계선을 모서리에 만들 수 있습니다.
+</div>
+
+
+</body>
+</html>

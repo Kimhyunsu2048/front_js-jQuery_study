@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery_3.js"></script>
+<script>
+	/*
+	 JQuery 를 이용한 Document Object Model Element 제어하기.
+	 DOM 은 다 알고 있을테니 설명만 할게요.
+	 이전 시간에는 Jquery 를 이용, 화면에 effect 를 주는 효과의 메서드를 보았다면
+	 이번에는 요소를 접근, 제어하는 메서드를 확인합니다.
+	 대표적인 메서드는 아래와 같습니다.
+	
+	 1. 요소의 내용을 가져오거나 변경(컨텐츠 변경) : text()
+	 2. 요소의 HTML 태그가 포함된 컨텐츠 리턴 : html()
+	 2. 요소의 속성을 가져오거나 변경 : attr()
+	 3. 요소의 스타일을 가져오거나 변경 : css()
+	 4. 요소를 추가하거나 삭제 : append(), remove()
+	 5. 폼내의 input 요소의 값 가져오거나 변경 : value()
+	 6. 요소의 위치값 리턴 : position()
+	
+	 */
+
+	$(document).ready(function() {
+		$("#text").click(function() {
+			//alert($("#target").text());
+			$("#target").text("이건 변경된 내용입니다.");
+		});
+	});
+	$(document).ready(function() {
+		$("#html").click(function() {
+			//alert($("#target").html());
+			alert($("#target").html("<b><i> 이건 Tag 내용까지 추가한 결과</i></b>"));
+		});
+	});
+
+	//아래의 예제는 이미지 롤링에 관련되 부연 설명입니다.
+	/*
+		ul 하위에 있는 자식 요소인 li 태그를 찾아서 그 태그내의 <img> 태그만
+		html() 이용해서 객체로 리턴 받습니다.
+		다음엔 해당 이미지를 리스트의 맨 마지막 요소로 다시 배치해야 하기때문에
+		(그래야 롤링이 되겠지요).. <li></li> 태그를 문자열로 만들어 붙인후
+		append() 를 이용해서 맨 마지막 list 의 다음 list 항목으로 넣어줍니다.
+	 */
+	$(document).ready(function() {
+		$("#imgs").click(function() {
+			var list = $("ul");
+			//alert(list.children().length);
+			alert("<li>" + list.find("li:first").html() + "</li>");
+		});
+	});
+
+	//입력태그의 값을 get/set 시엔 반드시 val() 을 이용해야 합니다.
+	$(document).ready(function() {
+		$("#val").click(function() {
+			//alert($("#target").html());
+			alert($("#id").val());
+			$("#id").val("내용을 변경합니다.");
+		});
+	});
+	
+	//속성(attribute) 가져오기..attr("속성명") 을 이용해서 속성이 정의된 요소의 속성값 
+	//get/set 합니다.
+	$(document).ready(function() {
+		$("#attr").click(function() {
+			//alert($("#target").html());
+			alert($("#fa").attr("href"));
+			$("#fa").attr("href","http://www.naver.com");
+		});
+	});
+	
+	//기존 DOM 에 신규 Element 를 추가 및 삭제 하는 메서드를 알아봅니다.
+	//대표적으로는 추가 메서드로는 append(), prepend(), after() 등이 있는데 아래와같음.
+	//append() 참조된 요소의 하위 자식노드의 맨 마지막 노드에 추가됨
+	//prepend() 참조된 요소의 하위 자식노드의 처음에 추가됨
+	//after() 참조된 요소의 next sibling 으로 추가됨
+	//before() 참조된 요소의 앞에 노드가 추가됨
+	$(document).ready(function() {
+		$("#append").click(function() {
+			$('p').append("<b style = 'color: red'> 안녕..난 추가된 노드임.</b>");
+		});
+		$("#prepend").click(function() {
+			$('p').append("<b style = 'color: yellow'> 안녕..prepend 노드임</b>");
+		});
+	});
+	
+	//노드 삭제..
+	/*
+	삭제전 반드시 알아야 할 내용 : 노드 삭제는 자식에서 부모는 절대 안됩니다.
+	삭제를 하려면 부모와 자식 모두, 또는 선택된 부모의 자식을 삭제 하는 경우 두 가지만 
+	가능합니다.
+	
+	remove() : 선택된 요소와 그 자식 노드도 모두 삭제
+	empty() : 선택된 부모의 하위 자식 요소를 삭제
+	*/
+	$(document).ready(function() {
+		$("#remove").click(function() {
+			$(".container").remove();
+		});
+		$("#empty").click(function() {
+			$(".container2").empty();
+		});
+	});
+	
+	
+	/*  
+	Jquery 의 CSS 조작 메서드 알아보기
+	
+	css() : 선택된 요소의 스타일 set/get
+	addClass() : 선택된 요소에 하나 이상의 스타일 추가
+	removeClass() : 위와 반대
+	*/
+	$(document).ready(function() {
+		$("#b1").click(function() {
+			var bgColor = 
+				$("#div1").css("background-color");//key 에 해당하는 값 리턴합니다.
+			$("#demo").text("bgColor :" + bgColor);
+		});
+		$("#b2").click(function() {
+			//$("#div1").css("background-color","green");
+			$("#div1").removeClass("warning");
+			$("#div1").addClass("container");
+		});
+		$("#b3").click(function() {
+			//동적으로 style 클래스 추가하기
+			$("#div1").removeClass("container");
+			$("#div1").addClass("warning");
+		});
+	});
+	
+</script>
+<style>
+	p{ background-color: yellow;}
+	
+	.container{height: 100px; width: 200px; border: 1px dotted red;
+		background-color: red;
+	}
+	
+	.container2{height: 100px; width: 200px; border: 1px solid cyan;
+	}
+	
+	.warning{
+		border: 3px solid black;
+		background-color: orange;
+	}
+</style>
+</head>
+<body>
+
+	<button id="b1">css(element)</button>
+	<button id="b2">css(element,style)</button><br>
+	<button id="b3">css추가하기</button><br>
+	<p id="demo">
+		여기에 결과 출력됨 : 
+	</p>
+	
+	<hr>
+	<button id="remove">remove()</button>
+	<button id="empty">empty()</button>
+	
+	<div class="container" id="div1">
+		<p class="hello">Hello</p>
+		<p class="there">There</p>
+	</div>
+	
+	<div class="container2">
+		<p class="hi">Hi</p>
+		<p class="gu">guys..</p>
+	</div>
+	
+	<hr>
+	<p id="target">
+		이 내용은 pTag 내의 <strong>하나의</strong> 문장입니다.
+	</p>
+	<p>
+		여긴 두번째 P 태그의 내용입니다.
+	</p>
+
+	<a href="http://www.daum.net" id="fa">다음</a>가기
+	<br> ID
+	<input type="text" id="id" size="15">
+	<br>
+	<button id="attr">attr()</button>
+	<button id="val">val()</button>
+	<button id="text">text()</button>
+	<button id="html">html()</button>
+	<button id="imgs">li 찾기</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

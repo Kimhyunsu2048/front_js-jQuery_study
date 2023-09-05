@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+let op; // 연산자 변수 선언할게요.
+
+function calc(){
+	let x = document.getElementById('x').value;
+	let y = document.getElementById('y').value;
+	let inop = document.getElementById('op').value;
+	let sum = document.getElementById('sum');
+	
+	x = parseInt(x);
+	y = parseInt(y);
+	
+	//연산자를 구분하는 함수 호출합니다.
+	/*
+	자바스크립트는 메서드를 호출할때 메서드 명으로만 호출하고 이후에 파라미터를 순차적으로 매핑하는 방식을 취합니다.
+	즉 이말은 함수를 호출할때, 파라미터의 갯수는 중요하지 않게 생각한다는 말입니다.(Java 등의 언어는 완전히 반대임..파라미터 갯수, 타입, 순서가 매우 중요함)
+	따라서 함수 호출시엔, 함수명이 호출 기준이 된다는걸 꼭 기억하세요.	
+	*/	
+	
+	let res = findOp(inop,x,y);
+	printResult(sum,res);
+	//alert(res);
+
+}
+
+// 어떤 연산자인지를 switch 를 이용해서 파악할게요.
+function findOp(userOp,firNum,secNum){
+	switch(userOp){
+		case '+':
+			op ="더하기";
+			return firNum + secNum;		
+		case '-':
+			op ="빼기";
+			return firNum - secNum;		
+	}
+}
+
+// 결과 필드에 결과값을 출력하도록 함수 정의해 보세요.
+
+function printResult(sumField,result){
+	sumField.value = result;		
+
+}
+
+</script>
+</head>
+<body>
+
+<h3>계산기</h3>
+
+<form action="" name="myForm" method="post">
+	첫번째 정수 : <input id="x" /><br>
+	두번째 정수 : <input id="y" /><br>
+	연산자 넣기 : <input id="op" /><br>
+	결과 : <input id="sum" /><br>	
+	<input type="button" value="계산하기" onclick="calc();">
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+	OS - EVENT QUEUE에서 이벤트 처리(이벤트리스너에 등록하는 방식)
+	브라우저
+	
+	Event(모든 NODE, Components)
+	
+	Rendering(컴포넌트를 그려준다)
+	
+	순서 : 
+	1. 이벤트 대상
+	2. 이벤트 등록(2가지)
+	- 인라인 방식 : tag 내에 직접 등록하는 방식. onclick..
+	- 이벤트리스너에 등록하는 방식. EventListener -> 클릭하면 값을 출력해
+	3. 이벤트핸들러(콜백함수) 
+-->
+
+<h2>이벤트 핸들링 첫예제..</h2>
+
+<button name="bt1" onclick="test();">인라인방식</button>
+
+<button name="bt2" id="bt2">DOM이용콜백이벤트</button>
+
+<a>클릭하세요.</a>
+
+<script type="text/javascript">
+function test(){
+	alert("bt1의 이벤트 핸들러 함수 호출됨");
+}
+
+// bt2를 찾아서 이벤트를 등록할예정입니다..DOM 만 사용할게요.
+var btn2 = document.getElementById('bt2');
+
+// window 객체의 속성중에 모든 컴포넌트에 적용 가능한(종류에 따라 틀림) 이벤트 속성을 찾아서
+// 이벤트 대상에 이벤트를 등록한다.
+btn2.onclick = function(){
+	alert('버튼2에서 클릭 이벤트 발생함');
+}
+
+// 이벤트리스너를 이용해서 NODE 를 찾아서 이벤트를 등록하고, 핸들러또한 등록합니다.
+// 리스너는 이 두개를 모두 처리하는 메서드라서 파라미터가 기본적으로 2개를 연결합니다.
+
+// DOM : Document Object Model(document 객체)
+const a = document.querySelector('a');
+// 리스너에 이벤트를 등록할때는 반드시 on 이 빠진 이벤트 명만 등록합니다. 꼭 기억하세요.
+// 정의된 함수를 핸들러로 등록할때는 반드시 함수명만 콜백명으로 등록합니다..꼭 기억하세요.
+//a.addEventListener('click', showEvt);
+
+// 화살표 익명함수로 핸들러를 정의해보세요.
+a.addEventListener('click',() => alert('리스너를 이용한 이벤트 핸들러 함수 응답'));
+
+// 핸들러 함수 정의
+function showEvt(){
+	alert('리스너를 이용한 이벤트 핸들러 함수 응답');
+}
+
+
+</script>
+
+</body>
+</html>

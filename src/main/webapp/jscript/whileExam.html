@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>while loop</title>
+</head>
+<body>
+<!-- 
+	모든 언어에서 사용되는 대표적 루프문..
+	기본 문법은 다음과 같음..
+	while(condition is 조건식 or 조건값){
+		위 condition 의 결과가 true 시에 수행할 로직구현..즉 루프수행구문 정의
+		// for 처럼 루프의 범위를 알경우나 아닌 모르는 경우 수행하되, 특정 조건이 되면 탈출(break) 할때 사용됩니다.
+	}
+ -->
+ 
+<script type="text/javascript">
+let count = 0;
+
+let flag = false; // flag 일반적으로 while 등의 무한 루프를 수행할때 조건값으로 사용되는 변수 또는 개념으로 사용하는 단어.
+// 특정 조건이 되었을때 flag(깃발)의 방향을 바꿔서 루프를 제어하는 형태를 말함
+
+while(flag){ // count값이 5보다 작을때까지만 루프를 수행하라는 조건임.	
+	alert(count);	
+	count++;
+	if(count == 5)
+		break;
+		//flag = false;
+}
+document.write("이건 while 루프문 수행 이후의 구문입니다.");
+
+// do{}while(조건식 or boolean Val); <- 반드시 ; 넣어주세요.
+/*
+*위 do~while 은 무조건 do 를 먼저 한번은 실행하고 이후에 while의 값에 따라서 do를 반복하도록 하는 문법입니다.
+*while 과의 가장 큰 차이점은 무조건 한번은 실행한다는 겁니다
+*조심해야할 부분은 do while은 하나의 문법으로 형성되어있지만, do{} 는 실행 블락을 가지고 있기때문에 그 블락내에서 처음 선언된 변수는 while에서 사용못합니다.
+*즉 do{} 의 지역으로 선언된다는 의미입니다.
+*/
+
+do{	
+	let flag2 = true;
+	alert('현재 flag2 값 : ' + flag2);	
+}while(flag2);
+
+
+</script>
+</body>
+</html>

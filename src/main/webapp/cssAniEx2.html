@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+CSS 에서 animation 을 적용할때는 @keyframes 속성을 기본으로 사용하는데, 이 속성에는 각 애니메이션이 수행되는 진행에 따르는 진행률에 따라서
+어떤 요소를 변환 시킬것인지에 대한 값을 주게 됩니다.
+
+예를 들자면 => @keyframes frameName {
+	0% {변경되어야할 속성 및 값 나열}
+	25% {변경되어야할 속성 및 값 나열}
+	.
+	.
+	.
+	100% {변경되어야할 속성 및 값 나열}
+} 와 같습니다.
+
+이렇게 애니메이션이 적용될 @keyframes 가 정의 되면, 적용될 div 요소의 속성명인 animation: 수행시간(second), 수행할킬프레임명 주고 수행시킵니다.
+추가 속성으로는 반복될 횟수를 지정할 수 있습니다.
+ -->
+<style type="text/css">
+	div{
+		width: 100px;
+		height: 100px;
+		background-color: red;
+		position: relative;
+		animation: 3s myanima;
+		animation-iteration-count: 10;
+	}
+	
+	@keyframes myanima{
+		0% {left: 0px; top: 0px;}
+		25% {left: 100px; top: 0px;}
+		50% {left: 200px; top: 0px;}
+		75% {left: 100px; top: 0px;}
+		100% {left: 0px; top: 0px;}
+	}
+	
+</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+ <!-- 스크립트 선언문을 정의. 모든 자바스크립트 구문은 (인라인 제외), 모두 이 선언문 내부에 존재해야 합니다. 반.드.시!!! -->
+ <script>
+function myFunction() {
+	//alert('안녕!!!myfunction 호출했네요.');
+	document.getElementById('demo').innerHTML = 'p Tag 의 컨텐츠가 변경되었네요.'	
+} 
+</script>
+<!-- 외부스크립트 import 시엔 절대 선언태그에 공백없어야 하고, 다른 코드 정의하면 안됩니다. -->
+<script src="../js/myscript.js"></script>
+
+</head>
+<body>
+<!-- Java Script Syntax
+	자바 스크립트는 HTML 에서 수행되는 프로그램이기 때문에 항상 HTML 내부 또는 외부에서 가져와 html 에서 사용합니다.
+	
+	코드를 선언 하는 방식은 크게 3가지입니다.
+	
+	1. <script></script> 를 문서내에서 선언후 정의하는 방법 : 문서 내부 어디에도 상관 없습니다.
+	2. 외부에서 정의된 스크립트를 사용하는 방법 <script src="path"></script> !!! 이때는 반드시
+	코드 선언부에 공백 없애야 하고 선언된 코드 내부에는 어떠한 코드도 정의 되지않아야 합니다.
+	3. HTML 요소 내부에 직접 정의하는 방법(인라인방법)
+	
+ -->
+ <h1>문서내에서 스크립트 선언후 코드를 구현해서 호출하는 방법입니다.</h1>
+ <p id="demo">함수(function)를 호출해서 이 내용이 바뀝니다.</p>
+ 
+ <button onclick="myFunction();">스크립트 함수 호출(call)하기</button>
+ <button onclick="urFunction();">urfunction 함수 호출(call)하기</button>
+
+ <hr>
+ <h2>이번엔 스크립트를 이용한 출력(output) 방법을 몇가지 볼게요. 아래는 대표적 출력 방법입니다.</h2>
+ <ul>
+ 	<li>Element 요소의 컨텐츠에 출력시 : innerHTML(속성)=value 이용</li>
+ 	<li>문서영역(body) 내부에 출력시 : document.write(value);</li>
+ 	<li>alert(value) : alert() 메서드를 이용한 출력</li>
+ 	<li>브라우저 개발자 콘솔에 출력 : console.log(value);</li>
+ </ul>
+ 
+ <script type="text/javascript">
+ document.write(1 + 2 + "<br>" + 1 + "2");
+ 
+ // document.write() : document 객체의 write() 메서드라고 합니다.
+ // 특징은 만약 기존에 body 영역에 쓰여진 컨텐츠가 있고, 아래처럼 함수등을 이용해서 문서 body 에 다시 쓰게되면,
+ // 기존의 컨텐츠는 사라지고 다시 쓰여지게 되는 특징이 있습니다.
+ // 좀더 설명하자면 아래 dWrite2() 가 호출되면 페이지는 리로딩되어서 안녕하세요 만 출력하게 된다는 의미입니다.
+ function dWrite2(){
+	 document.write("안녕하세요");
+ }
+ </script>
+ 
+ <button onclick="dWrite2();">call document.write()</button>
+ 
+ <!-- 마지막으로는 console 에 출력하는 형태를 봅니다.
+ console 이라는 개념은 개발자에게 매우 익숙한 대상입니다. 프로그래밍시 결과등을 콘솔에 출력해서 확인할때가 대부분이라서, 콘솔이라고 일반적으로 부릅니다.
+ 자바스크립트는 HTML 문서에서 수행되기에, 콘솔은 HTML 개발자 mode 의 console 을 뜻하고 그곳에 뭔가를 출력하도록 할때 사용되는 코드입니다.
+   -->
+ <script type="text/javascript">
+ console.log(2 + 2);
+ </script>
+ 
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 요소의 크기를 결정하는 중요한 요소인 padding, margin 알아보기 -->
+<style type="text/css">
+
+*{
+	margin: 0px;
+}
+#target1{
+	width: 100px;
+	height: 50px;
+	background-color: yellow;
+	resize: both; /*원인 찾아볼 것..*/
+}
+#target2{
+	width: 100px;
+	height: 50px;
+	background-color: gray;
+	margin-top: -15px;
+	padding: 0;
+}
+
+div.test1{
+	background-color: yellow;
+	width: 200px;
+	padding: 10px;
+	border: 5px solid red;
+	margin: 20px;
+}
+div.test2{
+	background-color: yellow;
+	width: 300px;
+	padding: 10px;
+	border: 5px solid red;
+	margin: 20px;
+}
+</style>
+</head>
+<body>
+
+<p id="target1">P 요소1</p>
+<p id="target2">P 요소2</p>
+
+<div class="test1" style="text-align: center;">
+	이건 DIV 이고 전체 폭은 270px 
+</div>
+<div class="test2">
+	이건 DIV 이고 전체 폭은 
+</div>
+</body>
+</html>

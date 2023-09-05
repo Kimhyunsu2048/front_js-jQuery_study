@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body onload="findDom();">
+<p id="demo">
+	여긴 p Tag 내부의 content 입니다.
+</p>
+
+<form name="myForm">
+	id : <input type="text" name="id" size="15" value="abc">
+</form>
+
+<form name="uForm">
+	암호 : <input type="password" name="pass" size="15" value="1234">
+</form>
+
+<ul>
+	<li>리스트1</li>
+	<li>리스트2</li>
+	<li>리스트3</li>
+</ul>
+
+<ul>
+	<li>리스트4</li>
+	<li>리스트5</li>
+	<li>리스트6</li>
+</ul>
+
+<script type="text/javascript">
+
+function findDom(){
+	let pEle = document.getElementById('demo');
+	
+	alert(pEle.innerHTML); // P tag 내의 content 출력
+	
+	// 폼 태그 찾기..이것도 이미 했음..
+	let f1 = document.myForm.id.value;
+	
+	// 이번엔 내부 요소를 배열로 접근해서 찾아보기
+	// 두번째 폼요소의 첫번째 하위 요소의 값 얻어내기
+	let f2 = document.form[1].element[0].value;
+	alert(f2);
+	
+	// Tag 이름으로 Element 찾아내기
+	let list = document.getElementsByTagName('ul')[0];
+	let lists = list.getElementsByTagName('li');
+	
+	for(let i = 0; i<lists.length; i++){
+		alert(lists[i].firstChild.data);
+	}
+}
+
+</script>
+</body>
+</html>

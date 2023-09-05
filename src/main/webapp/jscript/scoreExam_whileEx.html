@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+// flag 변수를 하나 선언해서, 조건에 따라서 분기를 할수 있도록 해볼게요.
+let validate_Ok = false;
+
+var scores = new Array(0,0,0,0); // 나중에 배열 배울때 성적을 담을 배열을 선언할게요..나중에 사용합니다.
+scores = [];
+// 점수 검증하는 함수 정의해 볼게요.
+function checkScore(){
+	let result = false;
+	let total = 0; // 총점
+	
+	let kor = parseInt(document.getElementById('kor').value);
+	let eng = parseInt(document.getElementById('eng').value);
+	let math = parseInt(document.getElementById('math').value);	
+	
+	scores[0] = kor;
+	scores[1] = eng;
+	scores[2] = math;
+	scores[3] = total;	
+	
+	for(let i = 0; i < scores.length-1; i++){
+		scores[scores.length-1] += scores[i];
+		if(scores[i] < 0 || scores[i] > 100){
+			// 여기가 수행된다는건 올바른 점수가 아니라는 의미입니다.			
+			alert("국어점수 범위가 틀림..재입력 하세요");
+			document.getElementById('kor').value = "";
+			document.getElementById('kor').focus();
+			break;
+		} else if(scores[i] < 0 || scores[i] > 100){
+			// 여기가 수행된다는건 올바른 점수가 아니라는 의미입니다.			
+			alert("영어점수 범위가 틀림..재입력 하세요");
+			document.getElementById('eng').value = "";
+			document.getElementById('eng').focus();
+			break;
+		} else if(scores[i] < 0 || scores[i] > 100){
+			// 여기가 수행된다는건 올바른 점수가 아니라는 의미입니다.
+			alert("수학점수 범위가 틀림..재입력 하세요");
+			document.getElementById('math').value = "";
+			document.getElementById('math').focus();
+			break;
+		}
+		validate_Ok = true;	
+	} 
+	
+	for(let x in scores){
+		total += scores[x];
+	}
+	
+	
+	
+	// while 을 이용해서 점수 검증을 시작할게요.
+	// 단 조건은 모든 과목의 점수를 검증할겁니다.
+	/* while(!validate_Ok){
+		if(scores[0] < 0 || scores[0] > 100){
+			// 여기가 수행된다는건 올바른 점수가 아니라는 의미입니다.
+			alert("국어점수 범위가 틀림..재입력 하세요");
+			document.getElementById('kor').value = "";
+			document.getElementById('kor').focus();
+			break;
+		} else if(scores[1] < 0 || scores[1] > 100){
+			// 여기가 수행된다는건 올바른 점수가 아니라는 의미입니다.
+			alert("영어점수 범위가 틀림..재입력 하세요");
+			document.getElementById('eng').value = "";
+			document.getElementById('eng').focus();
+			break;
+		} else if(scores[2] < 0 || scores[2] > 100){
+			// 여기가 수행된다는건 올바른 점수가 아니라는 의미입니다.
+			alert("수학점수 범위가 틀림..재입력 하세요");
+			document.getElementById('math').value = "";
+			document.getElementById('math').focus();
+			break;
+		}
+		validate_Ok = true;		
+	} */
+	
+	return result = validate_Ok == true?true:false;
+	
+}
+</script>
+</head>
+<body>
+<h2>여러분의 국,영,수 점수를 입력하세요(0~100)</h2>
+<form action="score.jsp" method="get" id="myform">
+	국어 : <input type="text" name="kor" id="kor"><br>
+	영어 : <input type="text" name="eng" id="eng"><br>
+	수학 : <input type="text" name="math" id="math"><br>
+	<input type="submit" value="전송" onclick="return checkScore();">
+</form>
+</body>
+</html>

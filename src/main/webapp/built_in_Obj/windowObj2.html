@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>브라우저 내장객체 알아보기(Browser Based Object)</title>
+</head>
+<body>
+<div id='div1'>
+	<h2>여기 div1 영역입니다.</h2>
+</div>
+<script type="text/javascript">
+function chgColor(){
+	setTimeout(()=>{
+		document.getElementById('div1').style.backgroundColor='cyan';
+	},2000);
+}
+</script>
+
+<h1>이건 Open 함수에 쓰이는 소스 페이지 입니다.</h1>
+
+<button onclick="chgColor();">눌러보세요</button>
+
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+각 요소의 위치값 지정하기(position)
+
+모든 요소는 기본적으로 브라우징시 위치를 태그 순서대로 자동 지정되어지는데, 필요에 따라서 이 속성을 변경해야 할 때가 있습니다.
+이때 사용되는 속성이 position 입니다.
+
+아래는 많이 사용되는 속성값 입니다.
+
+static position(정적) : 일반적인 흐름에 따른 배치 ,,, 적용위치 값 기준은 top, bottom, left, right 속성을 적용받지 않습니다.
+relative(상대적) : 정상적인 위치가 기준점이 되어서 해당 요소를 기준으로 상대적 값
+absolute(절대적) : 말그대로 그냥 위치값을 주면 그 위치에 배치되는 속성   // (기준이 브라우저 화면 상단 맨 위, 좌측)
+fixed(고정위치) : 윈도우의 원점이 기준점이 됩니다.
+ -->
+
+<style type="text/css">
+body{
+	background-color: green;
+}
+#one{
+	background-color: aqua;
+	width: 200px;
+	height: 80px;
+}
+#two{
+	position: relative;
+	top: 30px;
+	background-color: red;
+	width: 500px;
+	height: 500px;
+}
+#three{
+	background-color: blue;
+	width: 200px;
+	height: 80px;
+}
+</style>
+</head>
+<body>
+
+<p id="one">block 1</p>
+<div id="two">
+	block 2<br/>
+	포지션은 static 적용함<br/>
+</div>
+<p id="three">block 3</p>
+</body>
+</html>

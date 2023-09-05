@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p id="demo"></p>
+
+<script type="text/javascript">
+// 이 예제는 일반적인 콜스택에서 함수를 호출하여 도출되는 결과의 예시 입니다.
+// 지금까지 우리가 했던 방식입니다.
+
+// demo div 에 컨텐츠를 출력하는 함수 작성.
+
+function myDisp(some){
+	document.getElementById('demo').innerHTML = some;
+}
+
+// 내용이 틀린 함수 2개 정의
+function myFirst(){
+	myDisp("Hello");
+}
+
+function mySecond(){
+	myDisp("Goodbye");
+}
+
+// Call Stack 에 함수를 호출해서 적재합니다.
+myFirst();
+mySecond();
+
+</script>
+
+</body>
+</html>

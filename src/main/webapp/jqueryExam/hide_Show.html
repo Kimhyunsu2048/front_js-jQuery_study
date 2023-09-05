@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery_3.js"></script>
+<script>
+/*
+	p 요소내의 contens 를 버튼을 이용해서 show(), hide() 하도록 합니다.
+*/
+$(document).ready(function(){
+	$("#hide").click(function(){
+		$("p").hide(2000,
+				function(){alert("이건 hide 가 수행된 이후 콜백입니다.")});//jquery 의 hide() 호출함..	
+	});
+	//show 버튼을 클릭하면 show() 를 호출해서 보이도록 해보세요.
+});
+
+
+//아래 코드는 하나의 요소에 다중의 이벤트를 적용하는 코드 입니다.ㄴ
+$(document).ready(function(){
+	$("#show").on({
+		click : function(){
+			$("p").show("slow");
+		},
+		mouseleave : function(){
+			alert("잘가요~");
+		}
+	});
+});
+</script>
+</head>
+<body>
+<p>hide 버튼을 클릭하면 난 사라지지만 show 버튼을 클릭하면 다시 보입니다.</p>
+<p>기운들좀 냅니다..나도 기운 빠지게 되잖아요..</p>
+<p>이거 지겨우면 그만 접고 java 할까요?</p>
+<p>계속 김빠지게 답하면 나도 대충 갈키고 자바갑니다</p>
+
+<button id="hide">hide</button>
+<button id="show">show</button>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

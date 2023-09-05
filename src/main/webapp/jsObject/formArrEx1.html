@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="" name="myform">
+	필드1<input type="text" name="a0"><br/>
+	필드2<input type="text" name="a1"><br/>
+	필드3<input type="text" name="a2"><br/>
+	<input type="button" value="폼하위값변경" onclick="init();">
+</form>
+
+
+<script type="text/javascript">
+/* 
+브라우저의 모든 대상을 객체화 한 형태를 간략한 예로 하나 볼게요..
+중점적으로 볼 내용은  form 태그 하위에 있는 input 요소를 보시고, 해당 요소가 어떤 계층을 이루고 있는지 보세요.
+*/
+
+// 어제 BOM(Browser Object Model : 내장객체)의 계층도를 봐서 알겠지만, window --> document --> form --> form  내의 input 요소
+// 의 계층을 이루고 있습니다. 해서 form을 통해 내부의 하위 요소를 객체화 해서 내부적으로 보유하게 되는데, 이를 배열이나, 다른 형식으로 다양하게
+// 접근 가능한 것을 보여드립니다.
+
+function init(){
+	// form 객체의 하위 요소만큼 loop 후 각 개체의 속성을 호출해서 값 설정함
+	for(let i = 0; i < 3; i++){
+		document.myform["a" + i].value = i;
+	}
+}
+</script>
+
+</body>
+</html>

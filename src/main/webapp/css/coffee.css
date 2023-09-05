@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+/*클래스 선택자를 적용해서 CSS 를 정의합니다.*/
+
+/*body 전체는 여러분이 원하는 컬러로..*/
+body {
+	background-color: aqua;
+	font-family: serif;
+	color: black;
+}
+h1 {
+	border-color: red;
+	border-bottom: 1px solid gray; /*하나의 속성에 다중 값 적용시 공백으로 적용합니다.*/
+}
+
+/* 클래스 선택자를 적용해서 CSS 를 정의합니다.*/
+
+p.first {
+	color: green;
+}
+p.second {
+	color:blue;
+}

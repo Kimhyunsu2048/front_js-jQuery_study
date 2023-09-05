@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- 예를 들어서 하위 코드는 apple 에서 main 페이지에 적용된 css 를 import 하겠다는 선언(declaration) 의미입니다. -->
+<link type="text/css" rel="stylesheet" href="https://css.apple.com/appleMain.css">
+<!-- 다음으로 아래의 선언문(declaration) 은 내가 정의한 css 파일도 import한다는 의미. 이 문서가 포함된 폴더와 같은 위치에 있는 css 폴더에서
+handmade.css 를 import 하겠다는 의미입니다. -->
+<link type="text/css" rel="stylesheet" href="../css/handmade.css">
+<!-- 
+	css : Cascading Style Sheet
+	웹문서(HTML, JSP, PHP 등) 의 디자인(Style) 을 담당하는 기술입니다.
+	다른건 다 아시겠지만, 여기서 cascading 이란 개념을 설명할게요.
+	강의 시간에 말씀드렸듯이, 디자인을 구현하기 위해서는 외부에서 가져올수도, 문서내에서 정의 할수도, 인라인방식으로 정의할수도, 내가 정의한 css 파일로도
+	모두 적용 가능합니다. 이때 뭐가 우선순위가 될지를 결정하는 의미를 cascading 이라고 합니다.
+	순서는 위에서 나열된 순서로 가중치가 커집니다. 즉, 위 모든 스타일이 적용되었을때 무조건 내가 정의한 css 가 최고 우선순위를 갖습니다.(꼭 기억하세요)
+-->
+<meta charset="UTF-8">
+<!-- 
+	스타일을 적용하는 방법 3가지
+
+	1 .css 파일에 스타일을 정의해서 가져오거나 외부 스타일을 import 하는 방법 
+		문법 : <link type="text/css" rel="stylesheet" href="외부스타일인 경우 .css 를 포함한 파일명 
+		ex>http:css.apple.com/appleMain.css or 내가 정의한 css 파일경로 ex>/mysite/css/mine.css">
+	2 문서 내부에 정의하는 방법(이때는 head 사이에 <style></style> 이라고 선언합니다. => 해당 문서(html)에만 적용될 스타일을 정의할 때 사용함
+	3 인라인 방식으로 특정 element 에 직접 정의하는 방식 => style 이라는 Attribute 을 이용해서 값으로 적용할 스타일 값을 대입해 줍니다.
+-->
+<style>
+	/*이건 css의 주석입니다.*/
+	/*
+		스타일을 적용할 element 를 찾아야 하는데, 이 도구를 영어로는 selector(선택자) 라고 합니다.
+		당연히 하나 이상의 선택자가 있는데, 처음으로 사용할 선택자는 element selector 입니다.
+	*/
+	p {/*문서내의 모든 p 태그를 자동으로 찾아줍니다.*/
+		/* 이 괄호 내에는 적용할 style 요소를 정의해주면 됩니다. 각 요소의 정의가 끝나면 반드시 ";" 으로 끝을 표기 해야합니다.
+			하나의 스타일 요소에는 하나 이상의 속성을 일반적으로 갖게 되는데, 이렇게 하나이상의 속성을 정의할 때는 공백으로만 구분을 짓습니다.
+		*/		
+		background-color: aqua;
+		border: 3px solid red;
+	
+	}
+	/*
+		id 선택자 : element 에 id 요소를 부여해서 찾아내는 선택자입니다.
+		id 선택자는 지정된 id를 가진 요소만 찾기 때문에 #id 라는 형태로 찾아야 합니다.(꼭 기억하세요)
+	*/
+	#third {
+		background-color: red;
+		color: blue;
+		border: 1px dotted green;
+	}
+	/*
+		타입 선택자와 id 선택자를 조합해서도 사용 가능합니다.
+		ex>p#idname
+	*/
+	p#fourth {
+		background-color: yellow;
+		color: blue;
+		border: 1px dotted red;
+	}
+	
+	/*
+		클래스 선택자 : 클래스를 이용해서 정의됩니다. 표식자로는 "." 을 사용하고, 중복되어도 전혀 문제되지 않습니다.
+		당연히 적용될 element 는 class 속성에 값으로 className 을 줘야 합니다.
+		.target {
+			target 이라는 클래스명이 적용된 element 를 찾습니다.
+		}
+	*/
+	
+	.type1 {
+		text-align: center;
+	}
+	
+</style>
+<title>Insert title here</title>
+</head>
+<body>
+	<p>난 p tag 의 컨텐트 입니다.</p>
+	<p>난 두번째 p tag 의 컨텐츠 입니다.</p>
+	
+	<p id="third">난 세번째 p tag 의 컨텐츠 입니다.</p>
+	<p id="fourth">난 네번째 p tag 의 컨텐츠 입니다.</p>
+	<h1 class="type1">class 가 type1 인 h1 태그입니다.</h1>
+	<p class="type1">class가 type1 인 p 태그입니다.</p>
+</body>
+</html>

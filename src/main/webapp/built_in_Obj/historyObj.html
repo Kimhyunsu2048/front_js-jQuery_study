@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p>
+	history 객체는 사용자가 방문한 사이트의 기록을 담당하는 객체입니다.
+	대표적 속성으로는 length(방문한기록횟수), 메서드로는 back();=>이전, 
+	forward() => 다음, go(정수) => 음수는 이전, 양수는 다음, 을 넣을수 있고, 그 값만큼 이동하게 됩니다.  
+	
+	<a href="notice.html">notice.html</a>
+</p>
+
+<button onclick="history.back();">이전</button>
+<button onclick="history.forward();">다음</button>
+<button onclick="history.go(-2);">2번째 전으로 가기</button>
+</body>
+</html>

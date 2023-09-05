@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+// 배열객체의 메서드.. 배열은 그룹 데이터를 관리하는 객체라서 해당 데이터를 제어할 수 있는 많은 메서드를 두고 있습니다.
+// 모두 볼수는 없고(매뉴얼 참조), 필수적인 몇가지 요소만 예를 들어서 해볼게요..
+
+// 배열값중의 특정 값이 있는지 여부와 있다면 index 는 어떻게 되는지 찾는 메서드..indexOf("찾으려는 배열값");
+
+let fruits = ["apple", "orange", "banana", "orange"];
+
+console.log(fruits.indexOf('grape'));	// -1
+console.log(fruits.indexOf('orange'));	// 1
+console.log(fruits.lastIndexOf('orange'));	// 3
+console.log(fruits.indexOf('orange',fruits.indexOf('orange')+1));	//3
+console.log(fruits.indexOf('orange',2));	//3
+
+
+// 배열의 값이 수치로 되었을때 지정된 값 이상만 필터(filter: 걸러내기) 작업을 해주는 메서드..
+// 위를 포함, 지금하는 모든 메서드는 배열내의 값을 대상으로 하는 기능들입니다. 이말은 내가 배열을 이용할때 해야할 노가다 작업을 이미 메서드로 
+// 제공을 하고 있을거라고 생각하라는 의미입니다. 꼭 기억하세요.
+
+let numbers = [30,10,20,40,50];
+
+// filter 라는 메서드를 이용할건데요, 이 filter 에는 콜백 함수가 들어가야 합니다. 이 callback 이란건, 특정 메서드가 기능을 수행하고 난 후 
+// 바로 다음작업을 수행 할 함수를 통칭하는 용어입니다. 이 콜백을 모르면 자바스크립트는 할 수 없습니다.
+
+// filter method : 파라미터로 콜백을 받는데, 해당 콜백함수엔, 파라미터 3개를 이용해서 filter 에서 수행할 수행 내용을 지정할 수 있습니다.
+// 이 파라미터는 콜백 수행시 자동으로 연결이 되는데, element, index, array 를 파라미터로 주고 범위내에 존재하는 데이터를 return 문을 통해 넘겨주도록 
+// 정의해야 합니다.
+
+// filter 메서드의 파람으로 줄 콜백 함수 정의..
+function isBig(element, index, array){
+	// 필터될 조건(condition) 을 이 함수에 정의하면, filter 메서드가 이 조건에 맞는 요소만 찾아서 리턴시킵니다.
+	console.log("idx --> " + index);
+	console.log(array);
+	return (element >= 30); // 요소(element parameter) 를 좌측 조건에 대입해서 true 인것만 리턴시킴..
+}
+
+let result = numbers.filter(isBig); // 주의!!! 화살표 함수를 지정하지 않을시엔, 콜백으로 주는 함수는 () 가 없는 함수명만 줘야합니다. 
+
+console.log("필터된 배열 : " + result);
+
+// 위 fruits 배열의 값을 특정 구분자로 문자열로 리턴하는 join() 를 볼게요.
+
+let joinStr = fruits.join("+");
+console.log(joinStr);
+
+// 배열 분리해 볼게요..
+
+// slice(number startIdx), slice(number startIdx, number beforeIdx)
+// 메서드 오버로딩(overloading) : 전체적으로 기능은 동일하나, 세부 로직이 조금씩 틀릴때, 파라미터를 구분자로 주고, 같은 이름의 메서드를 나열해서
+// 호출되는 파라미터의 갯수(타입, 순서 등..)에 따라서 동적으로 해당되는 메서드를 호출하도록 하는 정의 규칙
+let sliRes = fruits.slice(1,fruits.length-1); // 1은 fromIndex or startInx 라는 표현으로 분리 시작 index 를 나타냅니다.
+console.log(sliRes);
+
+// 데이터를 정렬 해볼까요?? 문자열은 기본적으로 Ascending(오름차순) 으로 되어있고, Descending(내림차순),
+// 정렬 순서를 지정하고자 할 때는 콜백을 지정해서 사용합니다.
+
+numbers.sort();
+console.log(numbers);
+
+let myArr = [1,3,503,381,4012,41,4,345,45,24,15,41];
+
+// myArr 의 sort()에 적용될 정렬 로직을 구현한 콜백 함수를 정의합니다.
+// 그럼 이 로직대로 정의된 정렬순으로 배열값이 정렬되어집니다.. 무지 쉽습니다.
+
+myArr.sort(function(a,b) {
+	return a - b; // ASCE 정렬 로직임. 여기 return에서 - 는 수학의 개념이 아니라 알고리즘의 개념으로써 두 파라미터를 비교하라는 의미임.
+});
+
+console.log(myArr);
+
+myArr.sort(function(a,b) {
+	return b - a; // DESC 정렬 로직임. 여기 return에서 - 는 수학의 개념이 아니라 알고리즘의 개념으로써 두 파라미터를 비교하라는 의미임.
+});
+
+console.log(myArr);
+
+</script>
+
+</body>
+</html>
